@@ -1680,7 +1680,7 @@
 <XPD:REF name="Views[3]">x4zfHEPAu0KMsYvkiCs3jgAA</XPD:REF>
 <XPD:ATTR name="#Behaviors" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="Behaviors[0]" type="UMLActivityGraph" guid="7DR75SaPBEiJIJgft3ngNgAA">
-<XPD:ATTR name="Name" type="string">ActivityGraph1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Zarzadzaj Ocenami - Activity</XPD:ATTR>
 <XPD:REF name="Context">gi9xufsWt02/Xm8a9QD4XwAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="lXAzU97yz0aoeGpeppBcqwAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
@@ -2528,6 +2528,8 @@
 <XPD:REF name="Views[2]">RzUqK+wahk6pQo/Jy6cZwgAA</XPD:REF>
 <XPD:REF name="Views[3]">Yr1+I7d2uk20zJTJfmt5TQAA</XPD:REF>
 </XPD:OBJ>
+<XPD:ATTR name="#SubmachineStates" type="integer">1</XPD:ATTR>
+<XPD:REF name="SubmachineStates[0]">Ky7orPWzFUmgYtscBZMHoQAA</XPD:REF>
 <XPD:ATTR name="#Partitions" type="integer">2</XPD:ATTR>
 <XPD:OBJ name="Partitions[0]" type="UMLPartition" guid="Bf56i6EYsECyXGKExXiQlQAA">
 <XPD:ATTR name="Name" type="string">Wykladowca</XPD:ATTR>
@@ -2634,7 +2636,7 @@
 <XPD:REF name="Views[3]">NzQynfnZ90yYXnJAe2bD+gAA</XPD:REF>
 <XPD:ATTR name="#Behaviors" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="Behaviors[0]" type="UMLActivityGraph" guid="5p4z42OrEEixEwTTqR3wQAAA">
-<XPD:ATTR name="Name" type="string">ActivityGraph1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Zarzadzanie Uczestnikami - Activity</XPD:ATTR>
 <XPD:REF name="Context">WTlmqvhnqE+N5XlVDNOnpAAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="rOfnLD2tv0mXznwkRPxhmwAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
@@ -2675,6 +2677,7 @@
 <XPD:OBJ name="Subvertices[3]" type="UMLSubactivityState" guid="cLYA9pwT6kOQieA1j8vAZQAA">
 <XPD:ATTR name="Name" type="string">Dodaj uzytkownika</XPD:ATTR>
 <XPD:REF name="ContainerState">rOfnLD2tv0mXznwkRPxhmwAA</XPD:REF>
+<XPD:REF name="Submachine">DRU1+kykv0GsnHQ7bQfnfgAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">AFTscs3AnU+op6cTarGc8wAA</XPD:REF>
 <XPD:ATTR name="#Outgoings" type="integer">1</XPD:ATTR>
@@ -2685,6 +2688,7 @@
 <XPD:OBJ name="Subvertices[4]" type="UMLSubactivityState" guid="vmMRBEe/xk6ItcJdtaX23wAA">
 <XPD:ATTR name="Name" type="string">Usun uzytkownika</XPD:ATTR>
 <XPD:REF name="ContainerState">rOfnLD2tv0mXznwkRPxhmwAA</XPD:REF>
+<XPD:REF name="Submachine">MuvGG6u48UexGiOnfpkJhwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">6T7auEGcR02kX/fhpRh2vQAA</XPD:REF>
 <XPD:ATTR name="#Outgoings" type="integer">1</XPD:ATTR>
@@ -2695,6 +2699,7 @@
 <XPD:OBJ name="Subvertices[5]" type="UMLSubactivityState" guid="Ky7orPWzFUmgYtscBZMHoQAA">
 <XPD:ATTR name="Name" type="string">Zarzadzaj ocenami</XPD:ATTR>
 <XPD:REF name="ContainerState">rOfnLD2tv0mXznwkRPxhmwAA</XPD:REF>
+<XPD:REF name="Submachine">7DR75SaPBEiJIJgft3ngNgAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">LU56PpxyGUyCc1YFEoir4AAA</XPD:REF>
 <XPD:ATTR name="#Outgoings" type="integer">1</XPD:ATTR>
@@ -2864,10 +2869,10 @@
 <XPD:OBJ name="OwnedViews[7]" type="UMLSubactivityStateView" guid="AFTscs3AnU+op6cTarGc8wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">428</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">384</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">252</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">129</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">210</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">62</XPD:ATTR>
 <XPD:REF name="Model">cLYA9pwT6kOQieA1j8vAZQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="Or14AO0x602twtvCz4j8qwAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="n5Fbin24+0etLJvmLKVAyAAA">
@@ -2881,14 +2886,14 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="IncludeLabel" type="LabelView" guid="9dNMMeAd6kubttWqMXwu4wAA">
-<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">include / Dodaj uczestnika - Activity</XPD:ATTR>
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[8]" type="UMLTransitionView" guid="zFTRZXMK/06PDxyW5DCySgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">428,272;288,272;288,163</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">384,280;288,280;288,163</XPD:ATTR>
 <XPD:REF name="Model">rWSu+kyaVUS9ycXdfNsXJQAA</XPD:REF>
 <XPD:REF name="Head">cnWiT35isUCGRRSmwkiXBQAA</XPD:REF>
 <XPD:REF name="Tail">AFTscs3AnU+op6cTarGc8wAA</XPD:REF>
@@ -2916,8 +2921,8 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">608</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">252</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">124</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">205</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">62</XPD:ATTR>
 <XPD:REF name="Model">vmMRBEe/xk6ItcJdtaX23wAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="vR5gLM3BVk6MpBIoDb0LpAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="SyL8EHPZ7kOvXSTn9rB+RQAA">
@@ -2931,16 +2936,16 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="IncludeLabel" type="LabelView" guid="p4Mv8Ijws0uNS5AigxC+/QAA">
-<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">include / Usun uczestnika - Activity</XPD:ATTR>
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[10]" type="UMLSubactivityStateView" guid="LU56PpxyGUyCc1YFEoir4AAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">800</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">256</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">128</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">828</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">252</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">221</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">62</XPD:ATTR>
 <XPD:REF name="Model">Ky7orPWzFUmgYtscBZMHoQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="BJipkvam5U6mBvu1EFY0hgAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="4skVB47rpU2LhasT1wB70QAA">
@@ -2954,7 +2959,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="IncludeLabel" type="LabelView" guid="UktoNswXz0yI88b8G8jdmAAA">
-<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">include / Zarzadzaj Ocenami - Activity</XPD:ATTR>
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[11]" type="UMLFinalStateView" guid="qxdwSuvFQU2HFxWIhK6ABAAA">
@@ -2970,7 +2975,7 @@
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">672,296;672,308;265,308;265,163</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">712,313;712,328;265,328;265,163</XPD:ATTR>
 <XPD:REF name="Model">ChOt0o0IGEmnSYOrZ7FHwwAA</XPD:REF>
 <XPD:REF name="Head">cnWiT35isUCGRRSmwkiXBQAA</XPD:REF>
 <XPD:REF name="Tail">6T7auEGcR02kX/fhpRh2vQAA</XPD:REF>
@@ -2997,7 +3002,7 @@
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">868,300;868,344;240,344;240,163</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">936,313;936,376;240,376;240,163</XPD:ATTR>
 <XPD:REF name="Model">fVjHGCck0EOArfPFqwCmiAAA</XPD:REF>
 <XPD:REF name="Head">cnWiT35isUCGRRSmwkiXBQAA</XPD:REF>
 <XPD:REF name="Tail">LU56PpxyGUyCc1YFEoir4AAA</XPD:REF>
@@ -3087,7 +3092,7 @@
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">498,144;668,144;668,252</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">498,144;708,144;708,252</XPD:ATTR>
 <XPD:REF name="Model">CHbtX3+Wk0+KdihuR5PQyQAA</XPD:REF>
 <XPD:REF name="Head">6T7auEGcR02kX/fhpRh2vQAA</XPD:REF>
 <XPD:REF name="Tail">ULkqTHjPGEKPdIZzzmtHGQAA</XPD:REF>
@@ -3114,7 +3119,7 @@
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">492,136;492,108;868,108;868,256</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">492,136;492,108;932,108;932,252</XPD:ATTR>
 <XPD:REF name="Model">6HpyGntVXkiB6wrpzcNbqgAA</XPD:REF>
 <XPD:REF name="Head">LU56PpxyGUyCc1YFEoir4AAA</XPD:REF>
 <XPD:REF name="Tail">ULkqTHjPGEKPdIZzzmtHGQAA</XPD:REF>
@@ -3303,7 +3308,7 @@
 <XPD:REF name="Views[3]">K5ujkRJg/0q3j0MlqCw3wwAA</XPD:REF>
 <XPD:ATTR name="#Behaviors" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="Behaviors[0]" type="UMLActivityGraph" guid="ng7lES4pYkG+UDBqpOFyUgAA">
-<XPD:ATTR name="Name" type="string">ActivityGraph1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Sprawdź Oceny - Activity</XPD:ATTR>
 <XPD:REF name="Context">+xW/NFMAB0GQcWvKlB6gsgAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="4zo4r8jLq0atVWbXBcTeQAAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
@@ -3807,7 +3812,7 @@
 <XPD:REF name="Views[3]">j42e/yj4vkSqiOh8qJsNJAAA</XPD:REF>
 <XPD:ATTR name="#Behaviors" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="Behaviors[0]" type="UMLActivityGraph" guid="DRU1+kykv0GsnHQ7bQfnfgAA">
-<XPD:ATTR name="Name" type="string">ActivityGraph1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Dodaj uczestnika - Activity</XPD:ATTR>
 <XPD:REF name="Context">FbZERM8fQ0GkUD5b/NMd6gAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="4yRNGd6b6E+lEqZlKuNYVAAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
@@ -4455,6 +4460,8 @@
 <XPD:REF name="Views[2]">1sU+CpG3VkGP48Ef0knBcQAA</XPD:REF>
 <XPD:REF name="Views[3]">cs992oZRRkuRTUXBNSyJTgAA</XPD:REF>
 </XPD:OBJ>
+<XPD:ATTR name="#SubmachineStates" type="integer">1</XPD:ATTR>
+<XPD:REF name="SubmachineStates[0]">cLYA9pwT6kOQieA1j8vAZQAA</XPD:REF>
 <XPD:ATTR name="#Partitions" type="integer">2</XPD:ATTR>
 <XPD:OBJ name="Partitions[0]" type="UMLPartition" guid="T/dkZKO3ok6ELGC8ghGvzwAA">
 <XPD:ATTR name="Name" type="string">Wykladowca</XPD:ATTR>
@@ -4492,7 +4499,7 @@
 <XPD:REF name="Views[3]">AGIVXw7RLkqmFNvDzlwVPgAA</XPD:REF>
 <XPD:ATTR name="#Behaviors" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="Behaviors[0]" type="UMLActivityGraph" guid="MuvGG6u48UexGiOnfpkJhwAA">
-<XPD:ATTR name="Name" type="string">ActivityGraph1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Usun uczestnika - Activity</XPD:ATTR>
 <XPD:REF name="Context">Qe070XcDZ02XWNBX4awregAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="0q3SdcJyGECWYh2cFSy1iwAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
@@ -5140,6 +5147,8 @@
 <XPD:REF name="Views[2]">ytE80gmqqkK21YadXayOjAAA</XPD:REF>
 <XPD:REF name="Views[3]">c8Mz3x2AxUuw2PgRyvJRBwAA</XPD:REF>
 </XPD:OBJ>
+<XPD:ATTR name="#SubmachineStates" type="integer">1</XPD:ATTR>
+<XPD:REF name="SubmachineStates[0]">vmMRBEe/xk6ItcJdtaX23wAA</XPD:REF>
 <XPD:ATTR name="#Partitions" type="integer">2</XPD:ATTR>
 <XPD:OBJ name="Partitions[0]" type="UMLPartition" guid="s6GNOai+B0q0HX4fkg1vNgAA">
 <XPD:ATTR name="Name" type="string">Wykladowca</XPD:ATTR>
@@ -5284,7 +5293,7 @@
 <XPD:REF name="Views[3]">5+ahrHEYHUa1WO0mjHe6wgAA</XPD:REF>
 <XPD:ATTR name="#Behaviors" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="Behaviors[0]" type="UMLActivityGraph" guid="jPqUYPe6LECFU28f/aj+8wAA">
-<XPD:ATTR name="Name" type="string">ActivityGraph1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Wyloguj - Activity</XPD:ATTR>
 <XPD:REF name="Context">R83TJ4y6tESz2C3H+IhEqgAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="ESNwCpJI6Uyw8pu61Is97AAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
