@@ -1722,7 +1722,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="wHbi8tk8mUOC42yUysr4gAAA">
-<XPD:ATTR name="Name" type="string">ActivityDiagram1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Weryfikacja - A Diagram - overstimulation</XPD:ATTR>
 <XPD:REF name="DiagramOwner">z8MMsEBQgUqOjVnoUv4UTwAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="D/pTAI3/nUyWvTB+Hy93UwAA">
 <XPD:REF name="Diagram">wHbi8tk8mUOC42yUysr4gAAA</XPD:REF>
@@ -2312,7 +2312,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="fhdbun74aUGlk6qmBcLt5wAA">
-<XPD:ATTR name="Name" type="string">ActivityDiagram1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Logowanie - A Diagram - overstimulation</XPD:ATTR>
 <XPD:REF name="DiagramOwner">CE8oHgABGUKTkIPVdi6qDQAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="aLatIH6U00Ghpwn4VYXISAAA">
 <XPD:REF name="Diagram">fhdbun74aUGlk6qmBcLt5wAA</XPD:REF>
@@ -3432,7 +3432,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="ZjFya6/k6EWEAHmcajwKSQAA">
-<XPD:ATTR name="Name" type="string">ActivityDiagram1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Rejestracja - A Diagram - overstimulation</XPD:ATTR>
 <XPD:REF name="DiagramOwner">cJw1xADP40qvyhXnJGyenAAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="uLS0GJ4fY0W9WRYwssEg/AAA">
 <XPD:REF name="Diagram">ZjFya6/k6EWEAHmcajwKSQAA</XPD:REF>
@@ -4167,7 +4167,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="SkpLzaGWkk6tSqN7nIHPzwAA">
-<XPD:ATTR name="Name" type="string">ActivityDiagram1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Zarzadzaj ocenami - A Diagram - Emzeey</XPD:ATTR>
 <XPD:REF name="DiagramOwner">7DR75SaPBEiJIJgft3ngNgAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="Px/QH69jAEK2soeP/F9XFQAA">
 <XPD:REF name="Diagram">SkpLzaGWkk6tSqN7nIHPzwAA</XPD:REF>
@@ -4912,7 +4912,7 @@
 <XPD:REF name="Views[3]">gPvYSNVKoEeKBX6WnjBAUwAA</XPD:REF>
 <XPD:ATTR name="#Behaviors" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="Behaviors[0]" type="UMLActivityGraph" guid="TDBpFy6J5USLZCwUFpZpKgAA">
-<XPD:ATTR name="Name" type="string">ActivityGraph1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Zarzadzanie kursami - Activity</XPD:ATTR>
 <XPD:REF name="Context">a4EKut6zv0i6zh+6N5pnMgAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="lZXMovb0H0KsmCLsussLqAAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
@@ -5018,7 +5018,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="g4lxO3IkqkaDL2yrPZSz7gAA">
-<XPD:ATTR name="Name" type="string">ActivityDiagram1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Zarzadzanie kursami - A Diagram - DeKa</XPD:ATTR>
 <XPD:REF name="DiagramOwner">TDBpFy6J5USLZCwUFpZpKgAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="F2zQVBfA2EyFoRJIqz8/zAAA">
 <XPD:REF name="Diagram">g4lxO3IkqkaDL2yrPZSz7gAA</XPD:REF>
@@ -5618,7 +5618,7 @@
 <XPD:REF name="Views[3]">hfeR9WSSBku+jVJpiygMngAA</XPD:REF>
 <XPD:ATTR name="#Behaviors" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="Behaviors[0]" type="UMLActivityGraph" guid="bjzGENvZ90OB38R5ZwdEJQAA">
-<XPD:ATTR name="Name" type="string">ActivityGraph1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Zarzadzanie plikami kursu - Activity</XPD:ATTR>
 <XPD:REF name="Context">D+PpglQk8kmx2n3JB0oV4gAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="EG6jwpOMAkiReq2FXeHFNwAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
@@ -5701,7 +5701,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="WqXECFOwK0KQamiGKjyiNAAA">
-<XPD:ATTR name="Name" type="string">ActivityDiagram1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Zarzadzanie plikami kursu - A Diagram - DeKa</XPD:ATTR>
 <XPD:REF name="DiagramOwner">bjzGENvZ90OB38R5ZwdEJQAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="wx96gnbBb0i2svnrvvzVRgAA">
 <XPD:REF name="Diagram">WqXECFOwK0KQamiGKjyiNAAA</XPD:REF>
@@ -6287,7 +6287,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="9FnJoNZ4DkO7HPibuRtidAAA">
-<XPD:ATTR name="Name" type="string">ActivityDiagram1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Poczta - A Diagram - overstimulation</XPD:ATTR>
 <XPD:REF name="DiagramOwner">rxmdubseKUuBQs2s0A7lWgAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="BcAiLZspuUSrRLuBQ8N2JwAA">
 <XPD:REF name="Diagram">9FnJoNZ4DkO7HPibuRtidAAA</XPD:REF>
@@ -6753,7 +6753,7 @@
 <XPD:REF name="Views[3]">2yzHlP3Cr02Zb/ozZ3/7OgAA</XPD:REF>
 <XPD:ATTR name="#Behaviors" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="Behaviors[0]" type="UMLActivityGraph" guid="tA1QiFwUo0mgHRrqfv7W+wAA">
-<XPD:ATTR name="Name" type="string">ActivityGraph1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Stworz kurs - Activity</XPD:ATTR>
 <XPD:REF name="Context">IRKhjNAdUE6nVJN/DNsA1AAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="wtoIdn6h/kqkUzaAEmgqiQAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
@@ -6847,7 +6847,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="6bNFiug/Xkq2E/wpajYpnAAA">
-<XPD:ATTR name="Name" type="string">ActivityDiagram1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Stworz kurs - A Diagram - DeKa</XPD:ATTR>
 <XPD:REF name="DiagramOwner">tA1QiFwUo0mgHRrqfv7W+wAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="5i06e+Ai0EmI1xk5el7sBAAA">
 <XPD:REF name="Diagram">6bNFiug/Xkq2E/wpajYpnAAA</XPD:REF>
@@ -7427,7 +7427,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="Vx1U8TN2WUOGMfeSvUCKSQAA">
-<XPD:ATTR name="Name" type="string">ActivityDiagram1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Zarzadzanie uczestnikami - A Diagram - Emzeey</XPD:ATTR>
 <XPD:REF name="DiagramOwner">5p4z42OrEEixEwTTqR3wQAAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="dpuge+m+Rka4wB+L+y78tAAA">
 <XPD:REF name="Diagram">Vx1U8TN2WUOGMfeSvUCKSQAA</XPD:REF>
@@ -8079,7 +8079,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="Icxf4Ypop0SZt0vYZ5VWAgAA">
-<XPD:ATTR name="Name" type="string">ActivityDiagram1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Sprawdz oceny - A Diagram - Emzeey</XPD:ATTR>
 <XPD:REF name="DiagramOwner">ng7lES4pYkG+UDBqpOFyUgAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="hiaIk9w+c0ytgbWr+cvZhwAA">
 <XPD:REF name="Diagram">Icxf4Ypop0SZt0vYZ5VWAgAA</XPD:REF>
@@ -8609,7 +8609,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="8L637OSCT06Isi1epEkaPAAA">
-<XPD:ATTR name="Name" type="string">ActivityDiagram1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Dodaj uczestnika - A Diagram - Emzeey</XPD:ATTR>
 <XPD:REF name="DiagramOwner">DRU1+kykv0GsnHQ7bQfnfgAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="rtJ37jPoB0CDMoCG4i2xBQAA">
 <XPD:REF name="Diagram">8L637OSCT06Isi1epEkaPAAA</XPD:REF>
@@ -9296,7 +9296,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="vFblqqgpSES5IeoXvngImwAA">
-<XPD:ATTR name="Name" type="string">ActivityDiagram1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Usun uczestnika - A Diagram - Emzeey</XPD:ATTR>
 <XPD:REF name="DiagramOwner">MuvGG6u48UexGiOnfpkJhwAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="uPN5IPViVEqVuZVlMkAaPQAA">
 <XPD:REF name="Diagram">vFblqqgpSES5IeoXvngImwAA</XPD:REF>
@@ -9967,7 +9967,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="rTnFsHLndEaUsv8nGRUN0gAA">
-<XPD:ATTR name="Name" type="string">ActivityDiagram1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Wyslij wiadomosc - A Diagram - overstimulation</XPD:ATTR>
 <XPD:REF name="DiagramOwner">d9IdaFQnKU6jhqtjOumFywAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="Y6INglKYSE6HN94thvykCwAA">
 <XPD:REF name="Diagram">rTnFsHLndEaUsv8nGRUN0gAA</XPD:REF>
@@ -10473,7 +10473,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="B6f7k3HBuke9JDGXwOKbSAAA">
-<XPD:ATTR name="Name" type="string">ActivityDiagram1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Sprawdz wiadomosci - A Diagram - overstimulation</XPD:ATTR>
 <XPD:REF name="DiagramOwner">UVVObQxCMEKDxa+6GjySCwAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="3BEBI+P/9EWU5RtCd/a1sgAA">
 <XPD:REF name="Diagram">B6f7k3HBuke9JDGXwOKbSAAA</XPD:REF>
@@ -10725,7 +10725,7 @@
 <XPD:REF name="Views[3]">kMj+kYx6kE6zQUvlSLveQAAA</XPD:REF>
 <XPD:ATTR name="#Behaviors" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="Behaviors[0]" type="UMLActivityGraph" guid="Hxfu2K2DcUqlcfWaNcLdMAAA">
-<XPD:ATTR name="Name" type="string">ActivityGraph1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Zarzadzanie skrzynka plikow - Activity</XPD:ATTR>
 <XPD:REF name="Context">QIv+xDqv0Eym/9D9lVR2vgAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="ZUq/lAwpxE24llSIKaKbpgAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
@@ -10848,7 +10848,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="V4fZws02/kqN0INZ6w40kgAA">
-<XPD:ATTR name="Name" type="string">ActivityDiagram1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Zarzadzanie skrzynka plikow - A Diagram - DeKa</XPD:ATTR>
 <XPD:REF name="DiagramOwner">Hxfu2K2DcUqlcfWaNcLdMAAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="knHHTkmFq0+tAIoPDbr7ZwAA">
 <XPD:REF name="Diagram">V4fZws02/kqN0INZ6w40kgAA</XPD:REF>
@@ -11566,7 +11566,7 @@
 <XPD:REF name="Views[3]">4QXFBqzSg02fJfygIlN1HwAA</XPD:REF>
 <XPD:ATTR name="#Behaviors" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="Behaviors[0]" type="UMLActivityGraph" guid="7RU3nEowmkKONDJ1J80U5QAA">
-<XPD:ATTR name="Name" type="string">ActivityGraph1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Zarzadzanie plikami - Activity</XPD:ATTR>
 <XPD:REF name="Context">30eNj4sHuk2G/23w8Ps7UQAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="qMMwpR4e7U+haiA6sJ3yWAAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
@@ -11721,7 +11721,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="bqNf+vY8S0OAVPjNmV+VCAAA">
-<XPD:ATTR name="Name" type="string">ActivityDiagram1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Zarzadzanie plikami - A Diagram - DeKa</XPD:ATTR>
 <XPD:REF name="DiagramOwner">7RU3nEowmkKONDJ1J80U5QAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="kBG3dRwKiUeqh4dKGl4xrAAA">
 <XPD:REF name="Diagram">bqNf+vY8S0OAVPjNmV+VCAAA</XPD:REF>
@@ -12554,7 +12554,7 @@
 <XPD:REF name="Views[3]">eMWEU3TFdkKPlQiGt+omvwAA</XPD:REF>
 <XPD:ATTR name="#Behaviors" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="Behaviors[0]" type="UMLActivityGraph" guid="JWPQ6PZPI0KxkWnScSKx+AAA">
-<XPD:ATTR name="Name" type="string">ActivityGraph1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Stworz skrzynke - Activity</XPD:ATTR>
 <XPD:REF name="Context">IFpX/GcfnEmK/A8fC7fwYwAA</XPD:REF>
 <XPD:OBJ name="Top" type="UMLCompositeState" guid="KbYELAyncEiXmS2j9U6yoAAA">
 <XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
@@ -12633,7 +12633,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="FSM3pwmgf0eKApeNR1EP9gAA">
-<XPD:ATTR name="Name" type="string">ActivityDiagram1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Stworz skrzynke - A Diagram - DeKa</XPD:ATTR>
 <XPD:REF name="DiagramOwner">JWPQ6PZPI0KxkWnScSKx+AAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="3n31+vUytkmmy1BsPvpMBwAA">
 <XPD:REF name="Diagram">FSM3pwmgf0eKApeNR1EP9gAA</XPD:REF>
@@ -13116,7 +13116,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="LTAy0Nf51kCrROk2bTKBWwAA">
-<XPD:ATTR name="Name" type="string">ActivityDiagram1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Wyloguj - A Diagram - Emzeey</XPD:ATTR>
 <XPD:REF name="DiagramOwner">jPqUYPe6LECFU28f/aj+8wAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="0/vYckSZaEmV1Y+nZ/2iAAAA">
 <XPD:REF name="Diagram">LTAy0Nf51kCrROk2bTKBWwAA</XPD:REF>
