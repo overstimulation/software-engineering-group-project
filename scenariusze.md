@@ -100,11 +100,19 @@
 
 | **Przypadek użycia** |   Zarzadzanie plikami   |
 | -------------------- | --- |
-| **Scenariusz**       |     |
-| **Warunki wstępne**  |     |
-| **Niezmienniki**     |     |
-| **Opis**             |     |
-| **Warunki końcowe**  |     |
+| **Scenariusz**       |  Sprawdzenie pliku przez Wykladowce   |
+| **Warunki wstępne**  |  Użytkownik zalogowany jako wykładowca, posiada dostęp do kursu i odpowiednich plików     |
+| **Niezmienniki**     |  Wykładowca wybiera opcje do przegladania plikow na skrzynce  |
+| **Opis**             |  Wykładowca loguje się do systemu i przechodzi do sekcji kursu, w którym chce sprawdzić plik. System weryfikuje dostęp wykładowcy do pliku. Po pozytywnej weryfikacji system wyświetla zawartość pliku, lub umożliwia jego pobranie.   |
+| **Warunki końcowe**  |   Wykładowca dostaje dostep do zawartości pliku lub do pobrania go  |
 
+
+| **Przypadek użycia** |   Zarzadzanie plikami   |
+| -------------------- | --- |
+| **Scenariusz**       |   Dodanie pliku przez studenta do skrznyki  |
+| **Warunki wstępne**  |    Użytkownik zalogowany jako Student, posiada dostęp do kursu i dodawania plikow do skrzynki   |
+| **Niezmienniki**     |    Student wybiera opcje dodania pliku do skrzynki |
+| **Opis**             |   	Student loguje się do systemu. W menu kursu wybiera opcję „Dodaj plik do skrzynki”. System weryfikuje, czy student ma odpowiednie uprawnienia do dodawania plików do skrzynki. Po pozytywnej weryfikacji, student wybiera plik z urządzenia, który chce dodać do skrzynki. System sprawdza, czy plik spełnia wymagania (np. rozmiar, format). Po zatwierdzeniu pliku, system dodaje go do odpowiedniej skrzynki.  |
+| **Warunki końcowe**  |    	Plik pomyślnie dodany do skrzynki plików w kursie |
 
 
