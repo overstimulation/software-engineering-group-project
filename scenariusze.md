@@ -1,5 +1,5 @@
 
-| **Przypadek użycia** |     |
+| **Przypadek użycia** | Test    |
 | -------------------- | --- |
 | **Scenariusz**       |     |
 | **Warunki wstępne**  |     |
