@@ -46,7 +46,7 @@
 | **Opis**             |   Wykładowca loguje się do systemu, przechodzi do panelu kursu i otwiera zakładkę „Pliki”. Wybiera plik, który chce edytować, i przechodzi do formularza edycji. Wprowadza zmiany, np. nową nazwę lub opis pliku, a następnie zapisuje zmiany. System weryfikuje dane i aktualizuje informacje o pliku.  |
 | **Warunki końcowe**  |   Informacje o pliku zostają zaktualizowane, a wykładowca otrzymuje komunikat potwierdzający edycję |
 
-| **Przypadek użycia** |  Zarzadzanie Kursami   |
+| **Przypadek użycia** |  Zarzadzanie Kursem   |
 | -------------------- | --- |
 | **Scenariusz**       |   Wykładowca wybiera opcje zarzadzania skrzynką plików  |
 | **Warunki wstępne**  |   Wykładwoca jest zalogowany oraz posiada podstęp do zarządzania kursem  |
@@ -78,14 +78,33 @@
 | **Opis**             |   	Wykładowca loguje się do systemu i przechodzi do wybranego kursu. W menu kursu wybiera opcję „Zarządzanie uczestnikami”. System weryfikuje uprawnienia wykładowcy oraz dostępność kursu. Po pozytywnej weryfikacji system ładuje interfejs zarządzania uczestnikami kursu, umożliwiając dodawanie, usuwanie lub edytowanie listy uczestników.  |
 | **Warunki końcowe**  |  Wykładowca przechodzi do menu zarządzania uczestnikami kursu   |
 
-| **Przypadek użycia** |     |
+| **Przypadek użycia** |   Zarzadzanie skrzynka plikow   |
+| -------------------- | --- |
+| **Scenariusz**       |   Wykładowca wybiera opcję do zarządzania do zarzadzania plikami na skrzynce  |
+| **Warunki wstępne**  |  Wykładowca posiada dostęp do zarzadzania plikami na skrzynce    |
+| **Niezmienniki**     |  Wykładowca wybiera opcję do zarządzania do zarzadzania plikami na skrzynce   |
+| **Opis**             |   Wykładowca przechodzi do wybranego kursu, który zawiera skrzynkę plików. W menu kursu wybiera opcję „Zarzadzanie plikami”. System weryfikuje uprawnienia wykładowcy oraz dostępność skrzynki. Po pozytywnej weryfikacji, system ładuje interfejs, który umożliwia wykładowcy zarządzanie plikami: dodawanie nowych plików, edytowanie istniejących, a także usuwanie plików z danej skrzynki.  |
+| **Warunki końcowe**  |  Wykładowca przechodzi do menu zarzadzania plikami na skrzynce   |
+
+
+
+
+| **Przypadek użycia** |   Zarzadzanie skrzynka plikow   |
+| -------------------- | --- |
+| **Scenariusz**       |   Wykładowca wybiera opcję do tworzenia skrzynki  |
+| **Warunki wstępne**  |  Wykładowca posiada dostęp do tworzenia nowej skrzynki    |
+| **Niezmienniki**     |  Wykładowca wybiera opcję do tworzenia skrzynki   |
+| **Opis**             |   Wykładowca loguje się do systemu i przechodzi do kursu, w którym chce utworzyć nową skrzynkę plików. W menu kursu wybiera opcję „Swtorz skrzynke”. System weryfikuje uprawnienia wykładowcy oraz dostępność kursu. Po pozytywnej weryfikacji system ładuje formularz tworzenia nowej skrzynki.  |
+| **Warunki końcowe**  |  Wykładowca przechodzi do menu tworznia nowej skrzynki   |
+
+
+| **Przypadek użycia** |   Zarzadzanie plikami   |
 | -------------------- | --- |
 | **Scenariusz**       |     |
 | **Warunki wstępne**  |     |
 | **Niezmienniki**     |     |
 | **Opis**             |     |
 | **Warunki końcowe**  |     |
-
 
 
 
