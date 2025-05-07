@@ -5,16 +5,16 @@
 | **Scenariusz**       |   Wykładowca wybiera opcje zarzadzania skrzynką plików  |
 | **Warunki wstępne**  |   Wykładwoca jest zalogowany oraz posiada podstęp do zarządzania kursem  |
 | **Niezmienniki**     |   Wykładowca wybiera opcje zarządzania skrzynką plików  |
-| **Opis**             |   Wykładowca wchodzi do menu zarzadzania kursami. W panelu kursu wybiera opcję „Skrzynki plików”. System weryfikuje uprawnienia użytkownika i ładuje interfejs zarządzania skrzynkami. Wykładowca uzyskuje dostęp do listy istniejących skrzynek oraz opcji tworzenia nowych, edycji i usuwania.  |
+| **Opis**             |   Wykładowca wchodzi do menu zarzadzania kursami. W panelu kursu wybiera opcję „Skrzynki plików”. System weryfikuje uprawnienia użytkownika i ładuje interfejs zarządzania skrzynkami. Wykładowca uzyskuje dostęp do listy istniejących skrzynek. |
 | **Warunki końcowe**  |   Wykławdowca przechodzi do menu zarządzania skrzynką plików  |
-| **Źródło ewentualnych problemów** | Nieprawidłowe dane – system wyświetla komunikat o błędzie i prosi o ponowne wprowadzenie danych |
+| **Źródło ewentualnych problemów** | Brak wybranej skrzynki-Wykładwoca otrzymuje komunikat, że podana skrzynka nie istnieje |
 
 | **Przypadek użycia** |   Zarzadzanie Kursem   |
 | -------------------- | --- |
 | **Scenariusz**       |    Wykładowca wybiera opcje do utworzenia nowego kursu |
 | **Warunki wstępne**  |    Wykładwoca jest zalogowany oraz posiada podstęp do tworzenia kursu |
 | **Niezmienniki**     |    Wykładowca wybiera opcje  tworzenia kursu |
-| **Opis**             |    	Wykładowca wchodzi do menu zarządzania kursami. Wybiera opcję „Stwórz kurs”. System prezentuje formularz tworzenia kursu. Wykładowca wprowadza wymagane dane: nazwę kursu, opis. Po zatwierdzeniu formularza system weryfikuje poprawność danych i tworzy nowy kurs w bazie. |
+| **Opis**             |    	Wykładowca wchodzi do menu zarządzania kursami. Wybiera opcję „Stwórz kurs”. System prezentuje formularz tworzenia kursu. |
 | **Warunki końcowe**  |  Nowy kurs zostaje dodany do listy kursów i jest widoczny dla wykładowcy   |
 | **Źródło ewentualnych problemów** |  Nieprawidłowe dane – system wyświetla komunikat o błędzie i prosi o uzupełnienie lub poprawienie danych  <br> Brak uprawnień – system blokuje dostęp do formularza i informuje o braku autoryzacji |
 
