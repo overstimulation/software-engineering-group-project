@@ -7,7 +7,7 @@
 | **Niezmienniki**     |   Wykładowca wybiera opcje zarządzania skrzynką plików  |
 | **Opis**             |   Wykładowca wchodzi do menu zarzadzania kursami. W panelu kursu wybiera opcję „Skrzynki plików”. System weryfikuje uprawnienia użytkownika i ładuje interfejs zarządzania skrzynkami. Wykładowca uzyskuje dostęp do listy istniejących skrzynek oraz opcji tworzenia nowych, edycji i usuwania.  |
 | **Warunki końcowe**  |   Wykławdowca przechodzi do menu zarządzania skrzynką plików  |
-| **Źródło eewntualnych problemów **|
+| **Źródło eewntualnych problemów** | Nieprawidłowe dane – system wyświetla komunikat o błędzie i prosi o ponowne wprowadzenie danych |
 
 | **Przypadek użycia** |   Zarzadzanie Kursem   |
 | -------------------- | --- |
