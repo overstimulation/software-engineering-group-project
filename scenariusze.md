@@ -108,7 +108,7 @@ TODO| **Warunki końcowe**  |  Skrzynka zostaje utworzona, *Wykladowca otrzymuje
 
 
 
-# probably not needed, but still i leave it here bcs i can
+# to discuss emzeey don't aprove, i aprove
 
 
 # Zarzadzanie skrzynka plikow - DeKa
@@ -118,11 +118,9 @@ TODO| **Warunki końcowe**  |  Skrzynka zostaje utworzona, *Wykladowca otrzymuje
 | **Scenariusz**       |   Wykładowca wybiera opcję do tworzenia skrzynki  |
 | **Warunki wstępne**  |  Wykładowca posiada dostęp do tworzenia nowej skrzynki    |
 | **Niezmienniki**     |  Wykładowca wybiera opcję do tworzenia skrzynki   |
-| **Opis**             |   Wykładowca loguje się do systemu i przechodzi do kursu, w którym chce utworzyć nową skrzynkę plików. W menu kursu wybiera opcję „Swtorz skrzynke”. System weryfikuje uprawnienia wykładowcy oraz dostępność kursu. Po pozytywnej weryfikacji system ładuje formularz tworzenia nowej skrzynki.  |
+| **Opis**             |   Wykładowca przechodzi do kursu, w którym chce utworzyć nową skrzynkę plików. W menu kursu wybiera opcję „Swtorz skrzynke”. System weryfikuje uprawnienia wykładowcy oraz dostępność kursu. Po pozytywnej weryfikacji system ładuje formularz tworzenia nowej skrzynki.  |
 | **Warunki końcowe**  |  Wykładowca przechodzi do menu tworznia nowej skrzynki   |
-| **Źródło ewentualnych problemów** | Brak odpowiednich uprawnień – system odmawia dostępu do tworzenia skrzynki i informuje wykładowcę o braku autoryzacji.<br>Błąd w dostępności kursu – system informuje, że kurs, w którym wykładowca chce utworzyć skrzynkę, nie jest dostępny.<br>Błąd w formularzu tworzenia skrzynki – system zgłasza błąd, jeśli wprowadzone dane (np. nazwa skrzynki) są niepoprawne lub niekompletne. |
-
-
+| **Źródło ewentualnych problemów** | Brak odpowiednich uprawnień – system odmawia dostępu do tworzenia skrzynki i informuje wykładowcę o braku autoryzacji.<br>Błąd w dostępności kursu – system informuje, że kurs, w którym wykładowca chce utworzyć skrzynkę, nie jest dostępny. |
 
 
 | **Przypadek użycia** |   Zarzadzanie skrzynka plikow   |
@@ -130,7 +128,7 @@ TODO| **Warunki końcowe**  |  Skrzynka zostaje utworzona, *Wykladowca otrzymuje
 | **Scenariusz**       |   Wykładowca wybiera opcję do zarządzania plikami w skrzynce  |
 | **Warunki wstępne**  |  Wykładowca prawidłowo przeszedł do menu zarządzania skrzynka plikow    |
 | **Niezmienniki**     |  Wykładowca wybiera opcję do zarządzania plikami w skrzynce   |
-| **Opis**             |   Wykładowca przechodzi do wybranego kursu, który zawiera skrzynkę plików. W menu kursu wybiera opcję „Zarzadzanie plikami”. System weryfikuje uprawnienia wykładowcy oraz dostępność skrzynki. Po pozytywnej weryfikacji, system ładuje interfejs, który umożliwia wykładowcy zarządzanie plikami: dodawanie nowych plików, edytowanie istniejących, a także usuwanie plików z danej skrzynki.  |
+| **Opis**             |   Wykładowca przechodzi do wybranego kursu, który zawiera skrzynkę plików. W menu kursu wybiera opcję „Zarzadzanie plikami”. System weryfikuje uprawnienia wykładowcy oraz dostępność skrzynki. Po pozytywnej weryfikacji, system ładuje interfejs zarzadzania plikami.  |
 | **Warunki końcowe**  |  Wykładowca przechodzi do menu zarzadzania plikami na skrzynce   |
-| **Źródło ewentualnych problemów** | Brak odpowiednich uprawnień – system odmawia edycji pliku i informuje o braku dostępu.<br>Błąd w danych – system zgłasza błąd, jeśli wprowadzone dane (np. nazwa, opis) nie spełniają wymagań (np. zbyt długi tekst).<br>Problem z zapisem – system nie może zapisać zmian z powodu błędu, użytkownik jest proszony o zapisanie jeszcze raz<br>Brak wybranego pliku – system informuje, że wybrany plik nie istnieje lub został wcześniej usunięty.<br>Brak potwierdzenia zmian – system nie zapisuje zmian, jeśli użytkownik nie potwierdzi edycji w odpowiedni sposób. |
+| **Źródło ewentualnych problemów** | Brak odpowiednich uprawnień – system odmawia edycji pliku i informuje o braku dostępu.|
 
