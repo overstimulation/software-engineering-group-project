@@ -13662,7 +13662,7 @@
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">292,196;492,196</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">292,172;492,172</XPD:ATTR>
 <XPD:REF name="Model">6/LjScbkS0i0oDEt/FvWQwAA</XPD:REF>
 <XPD:REF name="Head">2j+fiXr6L0mj8BJ//cEq2wAA</XPD:REF>
 <XPD:REF name="Tail">wjYlCJsHMkaDXslq1OxyhwAA</XPD:REF>
@@ -14462,7 +14462,7 @@
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">820,160;1197,160;1197,528</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">820,124;1197,124;1197,528</XPD:ATTR>
 <XPD:REF name="Model">mlQ7AmR2aUCUq5G3+C59WgAA</XPD:REF>
 <XPD:REF name="Head">hS9xqzwF8kCbZlBHtFU7hgAA</XPD:REF>
 <XPD:REF name="Tail">2j+fiXr6L0mj8BJ//cEq2wAA</XPD:REF>
