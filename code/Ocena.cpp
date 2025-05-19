@@ -5,23 +5,21 @@
 //  @ Project : Untitled
 //  @ File Name : Ocena.cpp
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author : overstimulation
 //
 //
-
 
 #include "Ocena.h"
 #include "Student.h"
 
-int Ocena::getWartosc() {
-
+int Ocena::getWartosc()
+{
+    return wartosc;
 }
 
-Student* Ocena::getAdresat() {
-
+Student *Ocena::getAdresat()
+{
+    return adresatOceny;
 }
 
-Ocena::Ocena(int wartosc, Student* adresat) {
-
-}
-
+Ocena::Ocena(int wartosc, Student *adresat) : wartosc(wartosc), adresatOceny(adresat) {}
