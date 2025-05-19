@@ -1,0 +1,68 @@
+# C/C++ build outputs
+.build/
+build/
+bins
+gens
+libs
+objs
+# emacs temp files
+*~
+# vim temp files
+.*.swp
+.*.swo
+# Makefile's cache
+cache.mk
+# Artifacts directory
+/artifacts/
+# Git generated files for conflicting
+*.orig
+# IDE specific folder for JetBrains IDEs
+.idea/
+# Debug output
+gdb.txt
+# ctags file
+tags
+# perf data
+memory_usage.csv
+perf.data
+perf.data.old
+# bm_diff
+bloat_diff_new/
+bloat_diff_old/
+bloaty-build/
+# cmake build files
+**/cmake/build/
+# Visual Studio Code artifacts
+.cache/*
+.vscode/*
+.history/
+# Clion artifacts
+cmake-build-debug/
+# Prerequisites
+*.d
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+# Precompiled Headers
+*.gch
+*.pch
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+# Fortran module files
+*.mod
+*.smod
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+# Executables
+*.exe
+*.out
+*.app
+# C/C++ binary extension file
+*.bin
