@@ -5,10 +5,9 @@
 //  @ Project : Untitled
 //  @ File Name : Poczta.h
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author : overstimulation
 //
 //
-
 
 #if !defined(_POCZTA_H)
 #define _POCZTA_H
@@ -22,13 +21,15 @@ using namespace std;
 class User;
 class Wiadomosc;
 
-class Poczta {
+class Poczta
+{
 public:
-	list<Wiadomosc*> getWiadomosci(User* odbiorca);
-	void wyslijWiadomosc(Wiadomosc* wiadomosc);
+	list<Wiadomosc *> getWiadomosci(User *odbiorca);
+	void wyslijWiadomosc(Wiadomosc *wiadomosc);
 	Poczta();
+
 private:
-	list<Wiadomosc*> wiadomosci;
+	list<Wiadomosc *> wiadomosci;
 };
 
-#endif  //_POCZTA_H
+#endif //_POCZTA_H

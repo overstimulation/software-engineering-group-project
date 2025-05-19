@@ -5,24 +5,30 @@
 //  @ Project : Untitled
 //  @ File Name : Poczta.cpp
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author : overstimulation
 //
 //
-
 
 #include "Poczta.h"
 #include "User.h"
 #include "Wiadomosc.h"
 
-list<Wiadomosc*> Poczta::getWiadomosci(User* odbiorca) {
-
+list<Wiadomosc *> Poczta::getWiadomosci(User *odbiorca)
+{
+    list<Wiadomosc *> wynik;
+    for (auto w : wiadomosci)
+    {
+        if (w->getOdbiorca() == odbiorca)
+        {
+            wynik.push_back(w);
+        }
+    }
+    return wynik;
 }
 
-void Poczta::wyslijWiadomosc(Wiadomosc* wiadomosc) {
-
+void Poczta::wyslijWiadomosc(Wiadomosc *wiadomosc)
+{
+    wiadomosci.push_back(wiadomosc);
 }
 
-Poczta::Poczta() {
-
-}
-
+Poczta::Poczta() {}
