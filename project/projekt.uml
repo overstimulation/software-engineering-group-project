@@ -15688,13 +15688,17 @@
 </XPD:OBJ>
 <XPD:OBJ name="Operations[11]" type="UMLOperation" guid="FTpSujjSx0SGspOjj/c7SgAA">
 <XPD:ATTR name="Name" type="string">Wydzial</XPD:ATTR>
-<XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">create</XPD:ATTR>
 <XPD:REF name="Owner">UG2a5wE7MU6o9S9/e4UmywAA</XPD:REF>
-<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
-<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="dO1GWukulU+PB38N/TAU7AAA">
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="EpMBO2uLa0qmFccgWK4MlgAA">
 <XPD:ATTR name="Name" type="string">nazwa</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">string</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">FTpSujjSx0SGspOjj/c7SgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="MnS/TTqWz0e7ZXz8hj6heAAA">
+<XPD:ATTR name="Name" type="string">uczelnia</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">Uczelnia*</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">FTpSujjSx0SGspOjj/c7SgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
