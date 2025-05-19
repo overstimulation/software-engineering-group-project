@@ -5,7 +5,7 @@
 //  @ Project : Untitled
 //  @ File Name : Student.h
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author : overstimulation
 //
 //
 
