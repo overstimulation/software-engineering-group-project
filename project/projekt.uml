@@ -14807,9 +14807,9 @@
 <XPD:ATTR name="StereotypeName" type="string">query</XPD:ATTR>
 <XPD:REF name="Owner">XGNe2Mlw2kCq5kovaycw2gAA</XPD:REF>
 <XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
-<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="aaGR4QUaOUWyJeLuRFy6YAAA">
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="BEfhz7fLu0Gf6oi5yWwHcwAA">
 <XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
-<XPD:ATTR name="TypeExpression" type="string">list&lt;Widzial*&gt;</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">list&lt;Wydzial*&gt;</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">Ga+ERK+CrEWlvNDiOp9bbwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
@@ -16218,8 +16218,9 @@
 <XPD:REF name="Owner">B8ZWwjukLkqnR7L7eFAqbwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[8]" type="UMLAttribute" guid="CZcXJQP3T0+E82gZwEa1RwAA">
-<XPD:ATTR name="Name" type="string">kursy: list&lt;Kurs*&gt;*</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">kursy</XPD:ATTR>
 <XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">list&lt;Kurs*&gt;*</XPD:ATTR>
 <XPD:REF name="Owner">B8ZWwjukLkqnR7L7eFAqbwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
