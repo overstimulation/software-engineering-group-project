@@ -5,30 +5,57 @@
 //  @ Project : Untitled
 //  @ File Name : Wykladowca.cpp
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author : overstimulation
 //
 //
-
 
 #include "Wykladowca.h"
+#include "Kurs.h"
 
-string Wykladowca::getTytulNaukowy() {
-
+string Wykladowca::getTytulNaukowy()
+{
+    return tytulNaukowy;
 }
 
-string Wykladowca::getSpecjalizacja() {
-
+string Wykladowca::getSpecjalizacja()
+{
+    return specjalizacja;
 }
 
-Wydzial* Wykladowca::getWydzial() {
-
+Wydzial *Wykladowca::getWydzial()
+{
+    return User::getWydzial;
 }
 
-void Wykladowca::stworzKurs(string nazwa) {
+void Wykladowca::stworzKurs(string nazwa)
+{
+    /* TODO: dlaczego nazwa jest przekazywana jako parametr?
+    diagram aktywnosci wskazuje na uzycie std::cin */
+    Wydzial *mojWydzial = this->getWydzial();
 
+    bool kursIstnieje = false;
+    for (Kurs *kurs : mojWydzial->getKursy())
+    {
+        if (kurs->getNazwa() == nazwa)
+        {
+            kursIstnieje = true;
+            break;
+        }
+    }
+
+    if (kursIstnieje)
+    {
+        cout << "Kurs o nazwie '" << nazwa << "' juz istnieje." << endl;
+        cout << "Podaj inna nazwe dla nowego kursu."
+    }
+    else
+    {
+        Kurs *nowyKurs = new Kurs(nazwa);
+        mojWydzial->dodajKurs(nowyKurs);
+        /* TODO: jak przekazujemy informacje o wykladowcy tworzacym kurs?
+        That's a problem for the future me to worry about */
+    }
 }
 
-Wykladowca::Wykladowca(string imie, string nazwisko, Wydzial* wydzial, string tytul, string specjalizacja) : User(imie, nazwisko, wydzial)  {
-
-}
-
+Wykladowca::Wykladowca(string imie, string nazwisko, Wydzial *wydzial, string tytul, string specjalizacja)
+    : User(imie, nazwisko, wydzial), tytulNaukowy(tytul), specjalizacja(specjalizacja) {}
