@@ -5,10 +5,9 @@
 //  @ Project : Untitled
 //  @ File Name : Skrzynka.h
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author : overstimulation
 //
 //
-
 
 #if !defined(_SKRZYNKA_H)
 #define _SKRZYNKA_H
@@ -21,17 +20,19 @@ using namespace std;
 
 class Plik;
 
-class Skrzynka {
+class Skrzynka
+{
 public:
 	int getId();
-	int getNazwa();
-	Plik* getPlik();
-	void setPlik(Plik* plik);
+	string getNazwa();
+	Plik *getPlik();
+	void setPlik(Plik *plik);
 	Skrzynka(string nazwa);
+
 private:
 	int id;
 	string nazwa;
-	Plik* plik;
+	Plik *plik;
 };
 
-#endif  //_SKRZYNKA_H
+#endif //_SKRZYNKA_H

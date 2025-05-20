@@ -5,26 +5,26 @@
 //  @ Project : Untitled
 //  @ File Name : Student.cpp
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author : overstimulation
 //
 //
-
 
 #include "Student.h"
 
-int Student::getNrIndeksu() {
-
+int Student::getNrIndeksu()
+{
+    return nrIndeksu;
 }
 
-int Student::getRokStudiow() {
-
+int Student::getRokStudiow()
+{
+    return rokStudiow;
 }
 
-int Student::getStopienStudiow() {
-
+int Student::getStopienStudiow()
+{
+    return stopienStudiow;
 }
 
-Student::Student(string imie, string nazwisko, Wydzial* wydzial, int indeks, int rok, int stopien) : User(imie, nazwisko, wydzial) {
-
-}
-
+Student::Student(string imie, string nazwisko, Wydzial *wydzial, int indeks, int rok, int stopien)
+    : User(imie, nazwisko, wydzial), nrIndeksu(indeks), rokStudiow(rok), stopienStudiow(stopien) {}

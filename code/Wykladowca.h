@@ -5,10 +5,9 @@
 //  @ Project : Untitled
 //  @ File Name : Wykladowca.h
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author : overstimulation
 //
 //
-
 
 #if !defined(_WYKLADOWCA_H)
 #define _WYKLADOWCA_H
@@ -19,17 +18,20 @@
 #include <iostream>
 using namespace std;
 #include "User.h"
+#include "Wydzial.h"
 
-class Wykladowca : public User {
+class Wykladowca : public User
+{
 public:
 	string getTytulNaukowy();
 	string getSpecjalizacja();
-	Wydzial* getWydzial();
-	void stworzKurs(string nazwa);
-	Wykladowca(string imie, string nazwisko, Wydzial* wydzial, string tytul, string specjalizacja);
+	Wydzial *getWydzial();
+	void stworzKurs();
+	Wykladowca(string imie, string nazwisko, Wydzial *wydzial, string tytul, string specjalizacja);
+
 private:
 	string tytulNaukowy;
 	string specjalizacja;
 };
 
-#endif  //_WYKLADOWCA_H
+#endif //_WYKLADOWCA_H

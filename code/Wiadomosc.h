@@ -5,10 +5,9 @@
 //  @ Project : Untitled
 //  @ File Name : Wiadomosc.h
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author : overstimulation
 //
 //
-
 
 #if !defined(_WIADOMOSC_H)
 #define _WIADOMOSC_H
@@ -21,20 +20,22 @@ using namespace std;
 
 class User;
 
-class Wiadomosc {
+class Wiadomosc
+{
 public:
 	string getTemat();
 	string getTresc();
 	string getData();
-	User* getOdbiorca();
-	User* getNadawca();
-	Wiadomosc(string temat, string tresc, string data, User* odbiorca, User* nadawca);
+	User *getOdbiorca();
+	User *getNadawca();
+	Wiadomosc(string temat, string tresc, string data, User *odbiorca, User *nadawca);
+
 private:
 	string temat;
 	string tresc;
 	string data;
-	User* odbiorca;
-	User* nadawca;
+	User *odbiorca;
+	User *nadawca;
 };
 
-#endif  //_WIADOMOSC_H
+#endif //_WIADOMOSC_H

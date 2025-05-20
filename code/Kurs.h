@@ -5,10 +5,9 @@
 //  @ Project : Untitled
 //  @ File Name : Kurs.h
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author :
 //
 //
-
 
 #if !defined(_KURS_H)
 #define _KURS_H
@@ -26,25 +25,28 @@ class Skrzynka;
 class Ocena;
 class Plik;
 
-class Kurs {
+class Kurs
+{
 public:
-	list<Student*> getStudenci();
-	list<Wykladowca*> getWykladowcy();
-	list<Skrzynka*> getSkrzynki();
-	void dodajSkrzynke(Skrzynka* skrzynka);
-	void dodajOcene(Ocena* ocena);
-	void dodajUczestnika(User* uczestnik);
+	string getNazwa() {};
+	list<Student *> getStudenci();
+	list<Wykladowca *> getWykladowcy();
+	list<Skrzynka *> getSkrzynki();
+	void dodajSkrzynke(Skrzynka *skrzynka);
+	void dodajOcene(Ocena *ocena);
+	void dodajUczestnika(User *uczestnik);
 	bool usunSkrzynke(int id);
-	bool usunOcene(Ocena* ocena);
+	bool usunOcene(Ocena *ocena);
 	bool usunUczestnika(int id);
-	void dodajPlikDoSkrzynki(int idSkrzynki, Plik* plik);
-	Kurs(string nazwa);
+	void dodajPlikDoSkrzynki(int idSkrzynki, Plik *plik);
+	Kurs(string nazwa, Wykladowca *prowadzacy);
+
 private:
 	string nazwa;
-	list<Ocena*> oceny;
-	list<Student*> studenci;
-	list<Wykladowca*> wykladowcy;
-	list<Skrzynka*> skrzynkiPlikow;
+	list<Ocena *> oceny;
+	list<Student *> studenci;
+	list<Wykladowca *> wykladowcy;
+	list<Skrzynka *> skrzynkiPlikow;
 };
 
-#endif  //_KURS_H
+#endif //_KURS_H

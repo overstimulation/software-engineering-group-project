@@ -5,10 +5,9 @@
 //  @ Project : Untitled
 //  @ File Name : Kurs.cpp
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author :
 //
 //
-
 
 #include "Kurs.h"
 #include "User.h"
@@ -18,47 +17,57 @@
 #include "Ocena.h"
 #include "Plik.h"
 
-list<Student*> Kurs::getStudenci() {
-
+string Kurs::getNazwa()
+{
+    return nazwa;
 }
 
-list<Wykladowca*> Kurs::getWykladowcy() {
-
+list<Student *> Kurs::getStudenci()
+{
 }
 
-list<Skrzynka*> Kurs::getSkrzynki() {
-
+list<Wykladowca *> Kurs::getWykladowcy()
+{
 }
 
-void Kurs::dodajSkrzynke(Skrzynka* skrzynka) {
-
+list<Skrzynka *> Kurs::getSkrzynki()
+{
 }
 
-void Kurs::dodajOcene(Ocena* ocena) {
-
+void Kurs::dodajSkrzynke(Skrzynka *skrzynka)
+{
 }
 
-void Kurs::dodajUczestnika(User* uczestnik) {
-
+void Kurs::dodajOcene(Ocena *ocena)
+{
 }
 
-bool Kurs::usunSkrzynke(int id) {
-
+void Kurs::dodajUczestnika(User *uczestnik)
+{
 }
 
-bool Kurs::usunOcene(Ocena* ocena) {
-
+bool Kurs::usunSkrzynke(int id)
+{
 }
 
-bool Kurs::usunUczestnika(int id) {
-
+bool Kurs::usunOcene(Ocena *ocena)
+{
 }
 
-void Kurs::dodajPlikDoSkrzynki(int idSkrzynki, Plik* plik) {
-
+bool Kurs::usunUczestnika(int id)
+{
 }
 
-Kurs::Kurs(string nazwa) {
-
+void Kurs::dodajPlikDoSkrzynki(int idSkrzynki, Plik *plik)
+{
 }
 
+Kurs::Kurs(string nazwa)
+{
+}
+
+Kurs::Kurs(string nazwa, Wykladowca *prowadzacy)
+    : nazwa(nazwa)
+{
+    wykladowcy.push_back(prowadzacy);
+}

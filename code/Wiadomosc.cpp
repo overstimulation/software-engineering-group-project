@@ -5,35 +5,37 @@
 //  @ Project : Untitled
 //  @ File Name : Wiadomosc.cpp
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author : overstimulation
 //
 //
-
 
 #include "Wiadomosc.h"
 #include "User.h"
 
-string Wiadomosc::getTemat() {
-
+string Wiadomosc::getTemat()
+{
+    return temat;
 }
 
-string Wiadomosc::getTresc() {
-
+string Wiadomosc::getTresc()
+{
+    return tresc;
 }
 
-string Wiadomosc::getData() {
-
+string Wiadomosc::getData()
+{
+    return data;
 }
 
-User* Wiadomosc::getOdbiorca() {
-
+User *Wiadomosc::getOdbiorca()
+{
+    return odbiorca;
 }
 
-User* Wiadomosc::getNadawca() {
-
+User *Wiadomosc::getNadawca()
+{
+    return nadawca;
 }
 
-Wiadomosc::Wiadomosc(string temat, string tresc, string data, User* odbiorca, User* nadawca) {
-
-}
-
+Wiadomosc::Wiadomosc(string temat, string tresc, string data, User *odbiorca, User *nadawca)
+    : temat(temat), tresc(tresc), data(data), odbiorca(odbiorca), nadawca(nadawca) {}
