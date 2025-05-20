@@ -24,46 +24,97 @@ string Kurs::getNazwa()
 
 list<Student *> Kurs::getStudenci()
 {
+    return studenci;
 }
 
 list<Wykladowca *> Kurs::getWykladowcy()
 {
+    return wykladowcy;
 }
 
 list<Skrzynka *> Kurs::getSkrzynki()
 {
+    return skrzynkiPlikow;
 }
 
 void Kurs::dodajSkrzynke(Skrzynka *skrzynka)
 {
+    skrzynkiPlikow.push_back(skrzynka);
 }
 
 void Kurs::dodajOcene(Ocena *ocena)
 {
+    oceny.push_back(ocena);
 }
 
 void Kurs::dodajUczestnika(User *uczestnik)
 {
+    if (uczestnik == nullptr) {
+        cout << "B³¹d: uczestnik jest nullptr.\n";
+        return;
+    }
+
+    string rola = uczestnik->getRola();
+
+    if (rola == "s") {
+        Student* student = dynamic_cast<Student*>(uczestnik);
+        if (student != nullptr) {
+            studenci.push_back(student);
+        } else {
+            cout << "B³¹d: uczestnik ma rolê studenta, ale nie jest Studentem.\n";
+        }
+    }
+    else if (rola == "w") {
+        Wykladowca* wykladowca = dynamic_cast<Wykladowca*>(uczestnik);
+        if (wykladowca != nullptr) {
+            wykladowcy.push_back(wykladowca);
+        } else {
+            cout << "B³¹d: uczestnik ma rolê wyk³adowcy, ale nie jest Wykladowc¹.\n";
+        }
+    }
+    else {
+        cout << "Nieznana rola uczestnika: " << rola << "\n";
+    }
 }
+
 
 bool Kurs::usunSkrzynke(int id)
 {
+    for (auto it = skrzynkiPlikow.begin(); it != skrzynkiPlikow.end(); ++it) {
+        if ((*it)->getId() == id) {
+            skrzynkiPlikow.erase(it);
+            return true;
+        }
+    }
+    return false;
 }
+
 
 bool Kurs::usunOcene(Ocena *ocena)
 {
+    oceny.remove(ocena);
 }
 
 bool Kurs::usunUczestnika(int id)
 {
+    for (auto it = studenci.begin(); it != studenci.end(); ++it) {
+        if ((*it)->getId() == id) {
+            studenci.erase(it);
+            return true;
+        }
+    }
+    return false;
 }
+
 
 void Kurs::dodajPlikDoSkrzynki(int idSkrzynki, Plik *plik)
 {
-}
-
-Kurs::Kurs(string nazwa)
-{
+    for (Skrzynka* skrzynka : skrzynkiPlikow) {
+        if (skrzynka->getId() == idSkrzynki) {
+            skrzynka->setPlik(plik);
+            break;
+        }
+    }
 }
 
 Kurs::Kurs(string nazwa, Wykladowca *prowadzacy)

@@ -43,6 +43,10 @@ string User::getHaslo() {
     return haslo;
 }
 
+string User::getRola() {
+    return rola;
+}
+
 bool User::getZalogowany() {
     return zalogowany;
 }
@@ -62,6 +66,8 @@ void User::setLogin(string newLogin) {
 void User::setHaslo(string haslo) {
     User::haslo = haslo;
 }
+
+
 
 list<Wiadomosc*> User::sprawdzWiadomosci(Poczta* poczta) {
     return poczta->getWiadomosci(this);

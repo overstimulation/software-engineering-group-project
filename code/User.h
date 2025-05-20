@@ -35,6 +35,8 @@ public:
 	string getEmail();
 	string getLogin();
 	string getHaslo();
+	string getRola();
+	virtual ~User() {}
     bool getZalogowany();
     Wydzial* getWydzial();
 	list<Kurs*>* getKursy();
@@ -57,6 +59,7 @@ private:
 	bool zalogowany;
 	Wydzial* wydzial;
 	list<Kurs*>* kursy;
+	string rola;
 };
 
 #endif  //_USER_H
