@@ -5,7 +5,7 @@
 //  @ Project : Untitled
 //  @ File Name : User.cpp
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author :
 //
 //
 
@@ -14,49 +14,51 @@
 #include "Wydzial.h"
 #include "Kurs.h"
 #include "Wiadomosc.h"
+#include "Poczta.h"
 
 int User::getId() {
-
+    return id;
 }
 
 string User::getImie() {
-
+    return imie;
 }
 
 string User::getNazwisko() {
-
+    return nazwisko;
 }
 
 string User::getEmail() {
-
+    return email;
 }
 
 string User::getLogin() {
-
+    return login;
 }
 
 string User::getHaslo() {
-
+    return haslo;
 }
 
 bool User::getZalogowany() {
-
+    return zalogowany;
 }
 
 Wydzial* User::getWydzial() {
-
+    return wydzial;
 }
 
 list<Kurs*>* User::getKursy() {
-
+    return kursy;
 }
 
-list<Wiadomosc*> User::sprawdzWiadomosci() {
-
+list<Wiadomosc*> User::sprawdzWiadomosci(Poczta* poczta) {
+    return poczta->getWiadomosci(this);
 }
 
-void User::wyslijWiadomosc() {
 
+void User::wyslijWiadomosc(Poczta* poczta, Wiadomosc* wiadomosc) {
+    poczta->wyslijWiadomosc(wiadomosc);
 }
 
 void User::zarejestruj() {
