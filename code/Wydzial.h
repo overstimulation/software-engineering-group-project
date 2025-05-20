@@ -5,7 +5,7 @@
 //  @ Project : Untitled
 //  @ File Name : Wydzial.h
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author :
 //
 //
 
@@ -27,7 +27,7 @@ class Uczelnia;
 class Wydzial {
 public:
 	string getNazwa();
-	list<Kurs> getKursy();
+	list<Kurs*> getKursy();
 	Uczelnia* getUczelnia();
 	list<Student*> getStudenci();
 	list<Wykladowca*> getWykladowcy();
@@ -43,7 +43,7 @@ private:
 	list<Kurs*> kursy;
 	list<Student*> studenci;
 	list<Wykladowca*> wykladowcy;
-	Uczelnia* uczlenia;
+	Uczelnia* uczelnia;
 };
 
 #endif  //_WYDZIAL_H
