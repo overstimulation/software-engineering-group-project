@@ -24,7 +24,7 @@ class Plik;
 class Skrzynka {
 public:
 	int getId();
-	int getNazwa();
+	string getNazwa();
 	Plik* getPlik();
 	void setPlik(Plik* plik);
 	Skrzynka(string nazwa);

@@ -5,31 +5,31 @@
 //  @ Project : Untitled
 //  @ File Name : Skrzynka.cpp
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author :
 //
 //
-
 
 #include "Skrzynka.h"
 #include "Plik.h"
 
-int Skrzynka::getId() {
-
+int Skrzynka::getId()
+{
+    return id;
 }
 
-int Skrzynka::getNazwa() {
-
+string Skrzynka::getNazwa()
+{
+    return nazwa;
 }
 
-Plik* Skrzynka::getPlik() {
-
+Plik *Skrzynka::getPlik()
+{
+    return plik;
 }
 
-void Skrzynka::setPlik(Plik* plik) {
-
+void Skrzynka::setPlik(Plik *plik)
+{
+    // TODO: implementacja
 }
 
-Skrzynka::Skrzynka(string nazwa) {
-
-}
-
+Skrzynka::Skrzynka(string nazwa) : nazwa(nazwa) {}

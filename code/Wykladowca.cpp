@@ -24,7 +24,7 @@ string Wykladowca::getSpecjalizacja()
 
 Wydzial *Wykladowca::getWydzial()
 {
-    return User::getWydzial;
+    return User::getWydzial();
 }
 
 void Wykladowca::stworzKurs(string nazwa)
@@ -34,9 +34,9 @@ void Wykladowca::stworzKurs(string nazwa)
     Wydzial *mojWydzial = this->getWydzial();
 
     bool kursIstnieje = false;
-    for (Kurs *kurs : mojWydzial->getKursy())
+    for (Kurs &kurs : mojWydzial->getKursy())
     {
-        if (kurs->getNazwa() == nazwa)
+        if (kurs.getNazwa() == nazwa)
         {
             kursIstnieje = true;
             break;
@@ -46,7 +46,7 @@ void Wykladowca::stworzKurs(string nazwa)
     if (kursIstnieje)
     {
         cout << "Kurs o nazwie '" << nazwa << "' juz istnieje." << endl;
-        cout << "Podaj inna nazwe dla nowego kursu."
+        cout << "Podaj inna nazwe dla nowego kursu.";
     }
     else
     {
