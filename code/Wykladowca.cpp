@@ -38,9 +38,9 @@ void Wykladowca::stworzKurs()
         cout << "Podaj nazwe kursu: ";
         getline(cin, nazwa);
         kursIstnieje = false;
-        for (Kurs &kurs : mojWydzial->getKursy())
+        for (Kurs* kurs : mojWydzial->getKursy())
         {
-            if (kurs.getNazwa() == nazwa)
+            if (kurs->getNazwa() == nazwa)
             {
                 kursIstnieje = true;
                 cout << "Kurs o nazwie '" << nazwa << "' juz istnieje. Podaj inna nazwe.\n";

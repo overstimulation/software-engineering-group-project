@@ -28,7 +28,7 @@ class Plik;
 class Kurs
 {
 public:
-	string getNazwa() {};
+	string getNazwa();
 	list<Student *> getStudenci();
 	list<Wykladowca *> getWykladowcy();
 	list<Skrzynka *> getSkrzynki();
