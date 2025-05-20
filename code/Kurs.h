@@ -39,7 +39,7 @@ public:
 	bool usunOcene(Ocena *ocena);
 	bool usunUczestnika(int id);
 	void dodajPlikDoSkrzynki(int idSkrzynki, Plik *plik);
-	Kurs(string nazwa);
+	Kurs(string nazwa, Wykladowca *prowadzacy);
 
 private:
 	string nazwa;

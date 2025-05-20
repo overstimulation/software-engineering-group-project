@@ -27,34 +27,30 @@ Wydzial *Wykladowca::getWydzial()
     return User::getWydzial();
 }
 
-void Wykladowca::stworzKurs(string nazwa)
+void Wykladowca::stworzKurs()
 {
-    /* TODO: dlaczego nazwa jest przekazywana jako parametr?
-    diagram aktywnosci wskazuje na uzycie std::cin */
     Wydzial *mojWydzial = this->getWydzial();
-
+    cout << "--- Panel tworzenia kursu ---" << endl;
+    string nazwa;
     bool kursIstnieje = false;
-    for (Kurs &kurs : mojWydzial->getKursy())
+    do
     {
-        if (kurs.getNazwa() == nazwa)
+        cout << "Podaj nazwe kursu: ";
+        getline(cin, nazwa);
+        kursIstnieje = false;
+        for (Kurs &kurs : mojWydzial->getKursy())
         {
-            kursIstnieje = true;
-            break;
+            if (kurs.getNazwa() == nazwa)
+            {
+                kursIstnieje = true;
+                cout << "Kurs o nazwie '" << nazwa << "' juz istnieje. Podaj inna nazwe.\n";
+                break;
+            }
         }
-    }
-
-    if (kursIstnieje)
-    {
-        cout << "Kurs o nazwie '" << nazwa << "' juz istnieje." << endl;
-        cout << "Podaj inna nazwe dla nowego kursu.";
-    }
-    else
-    {
-        Kurs *nowyKurs = new Kurs(nazwa);
-        mojWydzial->dodajKurs(nowyKurs);
-        /* TODO: jak przekazujemy informacje o wykladowcy tworzacym kurs?
-        That's a problem for the future me to worry about */
-    }
+    } while (kursIstnieje);
+    Kurs *nowyKurs = new Kurs(nazwa, this);
+    mojWydzial->dodajKurs(nowyKurs);
+    cout << "Kurs '" << nazwa << "' zostal dodany do bazy aktywnych kursow." << endl;
 }
 
 Wykladowca::Wykladowca(string imie, string nazwisko, Wydzial *wydzial, string tytul, string specjalizacja)

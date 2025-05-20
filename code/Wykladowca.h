@@ -26,7 +26,7 @@ public:
 	string getTytulNaukowy();
 	string getSpecjalizacja();
 	Wydzial *getWydzial();
-	void stworzKurs(string nazwa);
+	void stworzKurs();
 	Wykladowca(string imie, string nazwisko, Wydzial *wydzial, string tytul, string specjalizacja);
 
 private:

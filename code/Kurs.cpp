@@ -65,3 +65,9 @@ void Kurs::dodajPlikDoSkrzynki(int idSkrzynki, Plik *plik)
 Kurs::Kurs(string nazwa)
 {
 }
+
+Kurs::Kurs(string nazwa, Wykladowca *prowadzacy)
+    : nazwa(nazwa)
+{
+    wykladowcy.push_back(prowadzacy);
+}
