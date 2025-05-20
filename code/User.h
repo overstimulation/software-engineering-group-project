@@ -5,7 +5,7 @@
 //  @ Project : Untitled
 //  @ File Name : User.h
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author :
 //
 //
 
@@ -22,6 +22,8 @@ using namespace std;
 class Wydzial;
 class Kurs;
 class Wiadomosc;
+class Poczta;
+
 
 class User {
 public:
@@ -34,8 +36,8 @@ public:
 	bool getZalogowany();
 	Wydzial* getWydzial();
 	list<Kurs*>* getKursy();
-	list<Wiadomosc*> sprawdzWiadomosci();
-	void wyslijWiadomosc();
+	list<Wiadomosc*> sprawdzWiadomosci(Poczta* poczta);
+	void wyslijWiadomosc(Poczta* poczta, Wiadomosc* wiadomosc);
 	void zarejestruj();
 	bool weryfikuj();
 	bool zaloguj();
