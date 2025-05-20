@@ -35,6 +35,20 @@ list<Wykladowca*> Uczelnia::getWykladowcy() {
     return wykladowcy;
 }
 
+list<User*> Uczelnia::getUzytkownicy() {
+    list<User*> uzytkownicy;
+
+    for (Student* s : studenci) {
+        uzytkownicy.push_back(s);
+    }
+
+    for (Wykladowca* w : wykladowcy) {
+        uzytkownicy.push_back(w);
+    }
+
+    return uzytkownicy;
+}
+
 void Uczelnia::dodajWydzial(Wydzial* wydzial) {
     wydzialy.push_back(wydzial);
 }
@@ -58,25 +72,6 @@ void Uczelnia::usunStudenta(Student* student) {
 void Uczelnia::usunWykladowce(Wykladowca* wykladowca) {
     wykladowcy.remove(wykladowca);
 }
-
-
-list<User*> Uczelnia::getUzytkownicy() {
-    list<User*> uzytkownicy;
-
-    for (Student* s : studenci) {
-        uzytkownicy.push_back(s);
-    }
-
-    for (Wykladowca* w : wykladowcy) {
-        uzytkownicy.push_back(w);
-    }
-
-    return uzytkownicy;
-}
-
-
-
-
 
 Uczelnia::Uczelnia(string nazwa, string adres)
     : nazwa(nazwa), adres(adres) {}

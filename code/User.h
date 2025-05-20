@@ -23,7 +23,9 @@ class Wydzial;
 class Kurs;
 class Wiadomosc;
 class Poczta;
-
+class Uczelnia;
+class Student;
+class Wykladowca;
 
 class User {
 public:
@@ -33,14 +35,16 @@ public:
 	string getEmail();
 	string getLogin();
 	string getHaslo();
-	bool getZalogowany();
-	Wydzial* getWydzial();
+    bool getZalogowany();
+    Wydzial* getWydzial();
 	list<Kurs*>* getKursy();
+    void setLogin(string login);
+    void setHaslo(string haslo);
 	list<Wiadomosc*> sprawdzWiadomosci(Poczta* poczta);
 	void wyslijWiadomosc(Poczta* poczta, Wiadomosc* wiadomosc);
-	void zarejestruj();
-	bool weryfikuj();
-	static User* zaloguj(const string& login, const string& haslo, list<User*>& uzytkownicy);
+	static User* zarejestruj(Uczelnia* uczelnia);
+	bool weryfikuj(const string& login, const string& haslo);
+	static User* zaloguj(const string& login, const string& haslo, list<User*>& uzytkownicy,Uczelnia* uczelnia);
 	void wyloguj();
 	User(string imie, string nazwisko, Wydzial* wydzial);
 private:

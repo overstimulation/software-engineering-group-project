@@ -31,13 +31,13 @@ public:
 	list<Wydzial*> getWydzialy();
 	list<Student*> getStudenci();
 	list<Wykladowca*> getWykladowcy();
+    list<User*> getUzytkownicy();
 	void dodajWydzial(Wydzial* wydzial);
 	void dodajStudenta(Student* student);
 	void dodajWykladowce(Wykladowca* wykladowca);
 	void usunWydzial(Wydzial* wydzial);
 	void usunStudenta(Student* student);
 	void usunWykladowce(Wykladowca* wykladowca);
-	list<User*> getUzytkownicy();
 	Uczelnia(string nazwa, string adres);
 private:
 	string nazwa;
