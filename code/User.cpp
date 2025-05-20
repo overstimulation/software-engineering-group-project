@@ -5,7 +5,7 @@
 //  @ Project : Untitled
 //  @ File Name : User.cpp
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author :
 //
 //
 
@@ -14,68 +14,172 @@
 #include "Wydzial.h"
 #include "Kurs.h"
 #include "Wiadomosc.h"
+#include "Poczta.h"
+#include "Uczelnia.h"
+#include "Student.h"
+#include "Wykladowca.h"
 
 int User::getId() {
-
+    return id;
 }
 
 string User::getImie() {
-
+    return imie;
 }
 
 string User::getNazwisko() {
-
+    return nazwisko;
 }
 
 string User::getEmail() {
-
+    return email;
 }
 
 string User::getLogin() {
-
+    return login;
 }
 
 string User::getHaslo() {
-
+    return haslo;
 }
 
 bool User::getZalogowany() {
-
+    return zalogowany;
 }
 
 Wydzial* User::getWydzial() {
-
+    return wydzial;
 }
 
 list<Kurs*>* User::getKursy() {
-
+    return kursy;
 }
 
-list<Wiadomosc*> User::sprawdzWiadomosci() {
-
+void User::setLogin(string newLogin) {
+    login = newLogin;
 }
 
-void User::wyslijWiadomosc() {
-
+void User::setHaslo(string haslo) {
+    User::haslo = haslo;
 }
 
-void User::zarejestruj() {
-
+list<Wiadomosc*> User::sprawdzWiadomosci(Poczta* poczta) {
+    return poczta->getWiadomosci(this);
 }
 
-bool User::weryfikuj() {
 
+void User::wyslijWiadomosc(Poczta* poczta, Wiadomosc* wiadomosc) {
+    poczta->wyslijWiadomosc(wiadomosc);
 }
 
-bool User::zaloguj() {
+User* User::zarejestruj(Uczelnia* uczelnia) {
+    string imie, nazwisko, login, haslo, nazwaWydzialu,rola;
+    Wydzial* wybranyWydzial = nullptr;
 
+    cout << "Rejestracja nowego uzytkownika\n";
+
+    cout << "Podaj imie: ";
+    cin >> imie;
+    cout << "Podaj nazwisko: ";
+    cin >> nazwisko;
+    cout << "Podaj login: ";
+    cin >> login;
+    cout << "Podaj haslo: ";
+    cin >> haslo;
+    cout<<"Zarejestuj jako Wykladowca/Student?";
+    cin>>rola;
+
+
+
+    while (true) {
+        cout << "Podaj nazwe wydzialu: ";
+        cin >> nazwaWydzialu;
+        list<Wydzial*> wydzialy = uczelnia->getWydzialy();
+        bool znaleziono = false;
+
+        for (Wydzial* w : wydzialy) {
+            if (w->getNazwa() == nazwaWydzialu) {
+                wybranyWydzial = w;
+                znaleziono = true;
+                break;
+            }
+        }
+
+        if (znaleziono)
+            break;
+        else
+            cout << "Nie ma takiego wydzialu. Sprobuj ponownie.\n";
+    }
+
+    User* nowy;
+    if(rola=="s")
+    {
+        int indeks, stopien, rok;
+        cout << "Podaj indeks: ";
+        cin >> indeks;
+        cout << "Podaj stopien studiow: ";
+        cin >> stopien;
+        cout << "Podaj rok studiow: ";
+        cin >> rok;
+
+    nowy = new Student (imie, nazwisko, wybranyWydzial, indeks, rok, stopien);
+    }
+    if(rola=="w")
+    {
+        string tytul, specjalizacja;
+        cout << "Podaj tytyl: ";
+        cin >> tytul;
+        cout << "Podaj specjalizacje: ";
+        cin >> specjalizacja;
+
+        nowy = new Wykladowca (imie, nazwisko, wybranyWydzial, tytul, specjalizacja);
+    }
+    nowy->setLogin(login);
+    nowy->setHaslo(haslo);
+    nowy->zalogowany = true;
+
+    cout << "Zarejestrowano i zalogowano pomyslnie.\n";
+    return nowy;
 }
+
+bool User::weryfikuj(const string& podanyLogin, const string& podaneHaslo) {
+    return (podanyLogin == login && podaneHaslo == haslo);
+}
+
+User* User::zaloguj(const string& login, const string& haslo, list<User*>& uzytkownicy, Uczelnia* uczelnia) {
+    for (User* u : uzytkownicy) {
+        if (u->weryfikuj(login, haslo)) {
+            u->zalogowany = true;
+            cout << "Zalogowano pomyslnie jako: " << u->imie << " " << u->nazwisko << endl;
+            return u;
+        }
+    }
+
+    cout << "Nieprawidlowy login lub haslo.\n";
+    cout << "Czy chcesz sie zarejestrowac? (t/n): ";
+    char odp;
+    cin >> odp;
+
+    if (odp == 't' || odp == 'T') {
+        User* nowy = User::zarejestruj(uczelnia);
+        uzytkownicy.push_back(nowy);
+        return nowy;
+    }
+
+    cout << "Nie zalogowano.\n";
+    return nullptr;
+}
+
 
 void User::wyloguj() {
-
+    zalogowany = false;
+    cout << "Wylogowano uzytkownika." << endl;
 }
 
-User::User(string imie, string nazwisko, Wydzial* wydzial) {
-
+User::User(string imie, string nazwisko, Wydzial* wydzial)
+    : imie(imie), nazwisko(nazwisko), wydzial(wydzial) {
+    static int nextId = 1;
+    id = nextId++;
+    zalogowany = false;
 }
 

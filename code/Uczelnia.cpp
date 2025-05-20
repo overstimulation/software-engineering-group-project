@@ -5,7 +5,7 @@
 //  @ Project : Untitled
 //  @ File Name : Uczelnia.cpp
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author :
 //
 //
 
@@ -16,50 +16,63 @@
 #include "Wykladowca.h"
 
 string Uczelnia::getNazwa() {
-
+    return nazwa;
 }
 
 string Uczelnia::getAdres() {
-
+    return adres;
 }
 
 list<Wydzial*> Uczelnia::getWydzialy() {
-
+    return wydzialy;
 }
 
 list<Student*> Uczelnia::getStudenci() {
-
+    return studenci;
 }
 
 list<Wykladowca*> Uczelnia::getWykladowcy() {
+    return wykladowcy;
+}
 
+list<User*> Uczelnia::getUzytkownicy() {
+    list<User*> uzytkownicy;
+
+    for (Student* s : studenci) {
+        uzytkownicy.push_back(s);
+    }
+
+    for (Wykladowca* w : wykladowcy) {
+        uzytkownicy.push_back(w);
+    }
+
+    return uzytkownicy;
 }
 
 void Uczelnia::dodajWydzial(Wydzial* wydzial) {
-
+    wydzialy.push_back(wydzial);
 }
 
 void Uczelnia::dodajStudenta(Student* student) {
-
+    studenci.push_back(student);
 }
 
 void Uczelnia::dodajWykladowce(Wykladowca* wykladowca) {
-
+     wykladowcy.push_back(wykladowca);
 }
 
 void Uczelnia::usunWydzial(Wydzial* wydzial) {
-
+    wydzialy.remove(wydzial);
 }
 
 void Uczelnia::usunStudenta(Student* student) {
-
+    studenci.remove(student);
 }
 
 void Uczelnia::usunWykladowce(Wykladowca* wykladowca) {
-
+    wykladowcy.remove(wykladowca);
 }
 
-Uczelnia::Uczelnia(string nazwa, string adres) {
-
-}
+Uczelnia::Uczelnia(string nazwa, string adres)
+    : nazwa(nazwa), adres(adres) {}
 

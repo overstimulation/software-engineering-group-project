@@ -5,7 +5,7 @@
 //  @ Project : Untitled
 //  @ File Name : Wydzial.cpp
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author :
 //
 //
 
@@ -17,50 +17,49 @@
 #include "Uczelnia.h"
 
 string Wydzial::getNazwa() {
-
+    return nazwa;
 }
 
-list<Kurs> Wydzial::getKursy() {
-
+list<Kurs*> Wydzial::getKursy() {
+    return kursy;
 }
 
 Uczelnia* Wydzial::getUczelnia() {
-
+    return uczelnia;
 }
 
 list<Student*> Wydzial::getStudenci() {
-
+    return studenci;
 }
 
 list<Wykladowca*> Wydzial::getWykladowcy() {
-
+    return wykladowcy;
 }
 
 void Wydzial::dodajKurs(Kurs* kurs) {
-
+    kursy.push_back(kurs);
 }
 
 void Wydzial::dodajStudenta(Student* student) {
-
+    studenci.push_back(student);
 }
 
 void Wydzial::dodajWykladowce(Wykladowca* wykladowca) {
-
+    wykladowcy.push_back(wykladowca);
 }
 
 bool Wydzial::usunKurs(Kurs* kurs) {
-
+    kursy.remove(kurs);
 }
 
 bool Wydzial::usunStudenta(Student* student) {
-
+    studenci.remove(student);
 }
 
 bool Wydzial::usunWykladowce(Wykladowca* wykladowca) {
-
+    wykladowcy.remove(wykladowca);
 }
 
-Wydzial::Wydzial(string nazwa, Uczelnia* uczelnia) {
-
-}
+Wydzial::Wydzial(string nazwa, Uczelnia* uczelnia)
+    : nazwa(nazwa), uczelnia(uczelnia) {}
 
