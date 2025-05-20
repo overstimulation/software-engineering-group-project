@@ -62,22 +62,64 @@ void User::wyslijWiadomosc(Poczta* poczta, Wiadomosc* wiadomosc) {
 }
 
 void User::zarejestruj() {
-
+    cout << "Rejestracja nowego uzytkownika\n";
+    cout << "Podaj imie: ";
+    cin >> imie;
+    cout << "Podaj nazwisko: ";
+    cin >> nazwisko;
+    cout << "Podaj login: ";
+    cin >> login;
+    cout << "Podaj haslo: ";
+    cin >> haslo;
+    zalogowany = true;
+    cout << "Zarejestrowano i zalogowano pomyslnie.\n";
 }
 
 bool User::weryfikuj() {
+    string podanyLogin, podaneHaslo;
 
+    cout << "Login: ";
+    cin >> podanyLogin;
+    cout << "Haslo: ";
+    cin >> podaneHaslo;
+
+    return (podanyLogin == login && podaneHaslo == haslo);
 }
 
-bool User::zaloguj() {
+User* User::zaloguj(const string& login, const string& haslo, list<User*>& uzytkownicy) {
+    for (User* u : uzytkownicy) {
+        if (u->login == login && u->haslo == haslo) {
+            u->zalogowany = true;
+            cout << "Zalogowano pomyslnie jako: " << u->imie << " " << u->nazwisko << endl;
+            return u;
+        }
+    }
 
+    cout << "Nieprawidlowy login lub haslo.\n";
+    cout << "Czy chcesz sie zarejestrowac? (t/n): ";
+    char odp;
+    cin >> odp;
+
+    if (odp == 't' || odp == 'T') {
+        User* nowy = new User("", "", nullptr);
+        nowy->zarejestruj();
+        uzytkownicy.push_back(nowy);
+        return nowy;
+    }
+
+    cout << "Nie zalogowano.\n";
+    return nullptr;
 }
 
 void User::wyloguj() {
-
+    zalogowany = false;
+    cout << "Wylogowano uzytkownika." << endl;
 }
 
-User::User(string imie, string nazwisko, Wydzial* wydzial) {
-
+User::User(string imie, string nazwisko, Wydzial* wydzial)
+    : imie(imie), nazwisko(nazwisko), wydzial(wydzial) {
+    static int nextId = 1;
+    id = nextId++;
+    zalogowany = false;
 }
 

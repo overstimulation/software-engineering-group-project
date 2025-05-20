@@ -5,7 +5,7 @@
 //  @ Project : Untitled
 //  @ File Name : Uczelnia.h
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author :
 //
 //
 
@@ -22,6 +22,7 @@ using namespace std;
 class Wydzial;
 class Student;
 class Wykladowca;
+class User;
 
 class Uczelnia {
 public:
@@ -36,6 +37,7 @@ public:
 	void usunWydzial(Wydzial* wydzial);
 	void usunStudenta(Student* student);
 	void usunWykladowce(Wykladowca* wykladowca);
+	list<User*> getUzytkownicy();
 	Uczelnia(string nazwa, string adres);
 private:
 	string nazwa;

@@ -40,7 +40,7 @@ public:
 	void wyslijWiadomosc(Poczta* poczta, Wiadomosc* wiadomosc);
 	void zarejestruj();
 	bool weryfikuj();
-	bool zaloguj();
+	static User* zaloguj(const string& login, const string& haslo, list<User*>& uzytkownicy);
 	void wyloguj();
 	User(string imie, string nazwisko, Wydzial* wydzial);
 private:
