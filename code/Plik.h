@@ -5,10 +5,9 @@
 //  @ Project : Untitled
 //  @ File Name : Plik.h
 //  @ Date : 19.05.2025
-//  @ Author : 
+//  @ Author : overstimulation
 //
 //
-
 
 #if !defined(_PLIK_H)
 #define _PLIK_H
@@ -19,13 +18,15 @@
 #include <iostream>
 using namespace std;
 
-class Plik {
+class Plik
+{
 public:
 	string getNazwa();
 	int getRozmiar();
 	string getDataDodania();
 	string getTresc();
 	Plik(string nazwa, int rozmiar, string tresc);
+
 private:
 	string nazwa;
 	int rozmiar;
@@ -33,4 +34,4 @@ private:
 	string tresc;
 };
 
-#endif  //_PLIK_H
+#endif //_PLIK_H

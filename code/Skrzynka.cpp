@@ -5,7 +5,7 @@
 //  @ Project : Untitled
 //  @ File Name : Skrzynka.cpp
 //  @ Date : 19.05.2025
-//  @ Author :
+//  @ Author : overstimulation
 //
 //
 
@@ -29,7 +29,7 @@ Plik *Skrzynka::getPlik()
 
 void Skrzynka::setPlik(Plik *plik)
 {
-    // TODO: implementacja
+    this->plik = plik;
 }
 
 Skrzynka::Skrzynka(string nazwa) : nazwa(nazwa) {}
