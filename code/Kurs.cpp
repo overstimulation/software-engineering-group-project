@@ -17,53 +17,76 @@
 #include "Ocena.h"
 #include "Plik.h"
 
-string Kurs::getNazwa()
-{
+string Kurs::getNazwa() {
     return nazwa;
 }
 
-list<Student *> Kurs::getStudenci()
-{
+list<Student *> Kurs::getStudenci() {
+	return studenci;
 }
 
-list<Wykladowca *> Kurs::getWykladowcy()
-{
+list<Wykladowca *> Kurs::getWykladowcy() {
+	return wykladowcy;
 }
 
-list<Skrzynka *> Kurs::getSkrzynki()
-{
+list<Skrzynka *> Kurs::getSkrzynki() {
+	return skrzynkiPlikow;
 }
 
-void Kurs::dodajSkrzynke(Skrzynka *skrzynka)
-{
+void Kurs::dodajSkrzynke(Skrzynka *skrzynka) {
+	skrzynkiPlikow.push_back(skrzynka);
 }
 
-void Kurs::dodajOcene(Ocena *ocena)
-{
+void Kurs::dodajOcene(Ocena *ocena) {
+	oceny.push_back(ocena);
 }
 
-void Kurs::dodajUczestnika(User *uczestnik)
-{
+void Kurs::dodajStudenta(Student *student) {
+	studenci.push_back(student);
 }
 
-bool Kurs::usunSkrzynke(int id)
-{
+void Kurs::dodajWykladowce(Wykladowca *wykladowca) {
+	wykladowcy.push_back(wykladowca);
 }
 
-bool Kurs::usunOcene(Ocena *ocena)
-{
+bool Kurs::usunSkrzynke(int id) {
+	for(Skrzynka *skrzynka : skrzynkiPlikow) {
+		if(skrzynka->getId() == id) {
+			skrzynkiPlikow.remove(skrzynka);
+			return true;
+		}
+	}
+	return false;
 }
 
-bool Kurs::usunUczestnika(int id)
-{
+bool Kurs::usunOcene(Ocena *ocena) {
+	oceny.remove(ocena);
 }
 
-void Kurs::dodajPlikDoSkrzynki(int idSkrzynki, Plik *plik)
-{
+bool Kurs::usunUczestnika(int id) {
+	for(Student *s : studenci) {
+		if(s->getId() == id) {
+			studenci.remove(s);
+			return true;
+		}
+	}
+	for(Wykladowca *w : wykladowcy) {
+		if(w->getId() == id) {
+			wykladowcy.remove(w);
+			return true;
+		}
+	}
+	return false;
 }
 
-Kurs::Kurs(string nazwa, Wykladowca *prowadzacy)
-    : nazwa(nazwa)
-{
+void Kurs::dodajPlikDoSkrzynki(int idSkrzynki, Plik *plik) {
+	for(Skrzynka *skrzynka : skrzynkiPlikow) {
+		if(skrzynka->getId() == idSkrzynki) {
+			skrzynka->setPlik(plik);
+		}
+	}
+}
+
+Kurs::Kurs(string nazwa, Wykladowca *prowadzacy) : nazwa(nazwa) {
     wykladowcy.push_back(prowadzacy);
 }

@@ -36,6 +36,7 @@ public:
 	string getLogin();
 	string getHaslo();
     bool getZalogowany();
+	string getRola();
     Wydzial* getWydzial();
 	list<Kurs*>* getKursy();
     void setLogin(string login);
@@ -46,7 +47,7 @@ public:
 	bool weryfikuj(const string& login, const string& haslo);
 	static User* zaloguj(const string& login, const string& haslo, list<User*>& uzytkownicy,Uczelnia* uczelnia);
 	void wyloguj();
-	User(string imie, string nazwisko, Wydzial* wydzial);
+	User(string imie, string nazwisko, Wydzial* wydzial, string rola);
 private:
 	int id;
 	string imie;
@@ -55,6 +56,7 @@ private:
 	string login;
 	string haslo;
 	bool zalogowany;
+	string rola;
 	Wydzial* wydzial;
 	list<Kurs*>* kursy;
 };

@@ -34,7 +34,8 @@ public:
 	list<Skrzynka *> getSkrzynki();
 	void dodajSkrzynke(Skrzynka *skrzynka);
 	void dodajOcene(Ocena *ocena);
-	void dodajUczestnika(User *uczestnik);
+	void dodajStudenta(Student *student);
+	void dodajWykladowce(Wykladowca *wykladowca);
 	bool usunSkrzynke(int id);
 	bool usunOcene(Ocena *ocena);
 	bool usunUczestnika(int id);

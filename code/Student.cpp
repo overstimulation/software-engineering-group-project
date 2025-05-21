@@ -27,4 +27,4 @@ int Student::getStopienStudiow()
 }
 
 Student::Student(string imie, string nazwisko, Wydzial *wydzial, int indeks, int rok, int stopien)
-    : User(imie, nazwisko, wydzial), nrIndeksu(indeks), rokStudiow(rok), stopienStudiow(stopien) {}
+    : User(imie, nazwisko, wydzial, "student"), nrIndeksu(indeks), rokStudiow(rok), stopienStudiow(stopien) {}

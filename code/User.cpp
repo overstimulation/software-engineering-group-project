@@ -47,6 +47,10 @@ bool User::getZalogowany() {
     return zalogowany;
 }
 
+string User::getRola() {
+	return rola;
+}
+
 Wydzial* User::getWydzial() {
     return wydzial;
 }
@@ -176,8 +180,8 @@ void User::wyloguj() {
     cout << "Wylogowano uzytkownika." << endl;
 }
 
-User::User(string imie, string nazwisko, Wydzial* wydzial)
-    : imie(imie), nazwisko(nazwisko), wydzial(wydzial) {
+User::User(string imie, string nazwisko, Wydzial* wydzial, string rola)
+    : imie(imie), nazwisko(nazwisko), wydzial(wydzial), rola(rola) {
     static int nextId = 1;
     id = nextId++;
     zalogowany = false;

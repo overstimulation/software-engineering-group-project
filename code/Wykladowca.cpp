@@ -54,4 +54,4 @@ void Wykladowca::stworzKurs()
 }
 
 Wykladowca::Wykladowca(string imie, string nazwisko, Wydzial *wydzial, string tytul, string specjalizacja)
-    : User(imie, nazwisko, wydzial), tytulNaukowy(tytul), specjalizacja(specjalizacja) {}
+    : User(imie, nazwisko, wydzial, "wykladowca"), tytulNaukowy(tytul), specjalizacja(specjalizacja) {}
