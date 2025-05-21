@@ -1,3 +1,5 @@
+#include "Uczelnia.h"
+
 int main() {
-	return 0;
+	Uczelnia *UMCS = new Uczelnia("Uniwersytet Marii Curie Sklodowskiej", "Cos");
 }

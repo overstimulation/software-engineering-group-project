@@ -60,7 +60,13 @@ bool Kurs::usunSkrzynke(int id) {
 }
 
 bool Kurs::usunOcene(Ocena *ocena) {
-	oceny.remove(ocena);
+	for(Ocena *o : oceny) {
+		if(o->getWartosc() == ocena->getWartosc() && o->getAdresat() == ocena->getAdresat()) {
+			oceny.remove(ocena);
+			return true;
+		}
+	}
+	return false;
 }
 
 bool Kurs::usunUczestnika(int id) {

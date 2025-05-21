@@ -49,15 +49,33 @@ void Wydzial::dodajWykladowce(Wykladowca* wykladowca) {
 }
 
 bool Wydzial::usunKurs(Kurs* kurs) {
-    kursy.remove(kurs);
+	for(Kurs *k : kursy) {
+		if(k->getNazwa() == kurs->getNazwa()) {
+			kursy.remove(kurs);
+			return true;
+		}
+	}
+	return false;
 }
 
 bool Wydzial::usunStudenta(Student* student) {
-    studenci.remove(student);
+	for(Student *s : studenci) {
+		if(s->getId() == student->getId()) {
+			studenci.remove(student);
+			return true;
+		}
+	}
+	return false;
 }
 
 bool Wydzial::usunWykladowce(Wykladowca* wykladowca) {
-    wykladowcy.remove(wykladowca);
+	for(Wykladowca *w : wykladowcy) {
+		if(w->getId() == wykladowca->getId()) {
+			wykladowcy.remove(wykladowca);
+			return true;
+		}
+	}
+	return false;
 }
 
 Wydzial::Wydzial(string nazwa, Uczelnia* uczelnia)
