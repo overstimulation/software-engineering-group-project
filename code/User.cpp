@@ -77,31 +77,32 @@ void User::wyslijWiadomosc(Poczta* poczta, Wiadomosc* wiadomosc) {
 }
 
 User* User::zarejestruj(Uczelnia* uczelnia) {
-    string imie, nazwisko, login, haslo, nazwaWydzialu,rola;
+    string imie, nazwisko, login, haslo, nazwaWydzialu, rola;
     Wydzial* wybranyWydzial = nullptr;
 
-    cout << "Rejestracja nowego uzytkownika\n";
+    cout << "Rejestracja nowego uzytkownika:\n";
 
-    cout << "Podaj imie: ";
+    cout << "Imie: ";
     cin >> imie;
-    cout << "Podaj nazwisko: ";
+    cout << "Nazwisko: ";
     cin >> nazwisko;
-    cout << "Podaj login: ";
+    cout << "Login: ";
     cin >> login;
-    cout << "Podaj haslo: ";
+    cout << "Haslo: ";
     cin >> haslo;
-    cout<<"Zarejestuj jako Wykladowca/Student?";
-    cin>>rola;
+    cout << "Zarejestuj jako wykladowca/student? ";
+    cin >> rola;
+	while(rola != "student" && rola != "wykladowca") {
+		cout << "Blad! Sprobuj jeszcze raz.\nZarejestuj jako Wykladowca/Student?";
+		cin >> rola;
+	}
 
-
-
-    while (true) {
+    while(true) {
         cout << "Podaj nazwe wydzialu: ";
         cin >> nazwaWydzialu;
-        list<Wydzial*> wydzialy = uczelnia->getWydzialy();
+		
         bool znaleziono = false;
-
-        for (Wydzial* w : wydzialy) {
+        for (Wydzial* w : uczelnia->getWydzialy()) {
             if (w->getNazwa() == nazwaWydzialu) {
                 wybranyWydzial = w;
                 znaleziono = true;
@@ -109,14 +110,14 @@ User* User::zarejestruj(Uczelnia* uczelnia) {
             }
         }
 
-        if (znaleziono)
+        if(znaleziono)
             break;
         else
             cout << "Nie ma takiego wydzialu. Sprobuj ponownie.\n";
     }
-
+	
     User* nowy;
-    if(rola=="s")
+    if(rola == "student" || rola == "s" || rola == "Student" || rola == "S")
     {
         int indeks, stopien, rok;
         cout << "Podaj indeks: ";
@@ -126,9 +127,10 @@ User* User::zarejestruj(Uczelnia* uczelnia) {
         cout << "Podaj rok studiow: ";
         cin >> rok;
 
-    nowy = new Student (imie, nazwisko, wybranyWydzial, indeks, rok, stopien);
+		nowy = new Student(imie, nazwisko, wybranyWydzial, indeks, rok, stopien);
     }
-    if(rola=="w")
+	
+    if(rola=="Wykladowca" || rola=="wykladowca" || rola=="W" || rola=="w")
     {
         string tytul, specjalizacja;
         cout << "Podaj tytyl: ";
@@ -136,22 +138,28 @@ User* User::zarejestruj(Uczelnia* uczelnia) {
         cout << "Podaj specjalizacje: ";
         cin >> specjalizacja;
 
-        nowy = new Wykladowca (imie, nazwisko, wybranyWydzial, tytul, specjalizacja);
+        nowy = new Wykladowca(imie, nazwisko, wybranyWydzial, tytul, specjalizacja);
     }
+	
     nowy->setLogin(login);
     nowy->setHaslo(haslo);
     nowy->zalogowany = true;
-
-    cout << "Zarejestrowano i zalogowano pomyslnie.\n";
     return nowy;
 }
 
 bool User::weryfikuj(const string& podanyLogin, const string& podaneHaslo) {
-    return (podanyLogin == login && podaneHaslo == haslo);
+    return podanyLogin == login && podaneHaslo == haslo;
 }
 
-User* User::zaloguj(const string& login, const string& haslo, list<User*>& uzytkownicy, Uczelnia* uczelnia) {
-    for (User* u : uzytkownicy) {
+User* User::zaloguj(Uczelnia* uczelnia) {
+	string login, haslo;
+	cout << "Logowanie do systemu:\n";
+	cout << "Login: ";
+	cin >> login;
+	cout << "Haslo: ";
+	cin >> haslo;
+	
+    for (User* u : uczelnia->getUzytkownicy()) {
         if (u->weryfikuj(login, haslo)) {
             u->zalogowany = true;
             cout << "Zalogowano pomyslnie jako: " << u->imie << " " << u->nazwisko << endl;
@@ -160,24 +168,15 @@ User* User::zaloguj(const string& login, const string& haslo, list<User*>& uzytk
     }
 
     cout << "Nieprawidlowy login lub haslo.\n";
-    cout << "Czy chcesz sie zarejestrowac? (t/n): ";
-    char odp;
-    cin >> odp;
-
-    if (odp == 't' || odp == 'T') {
-        User* nowy = User::zarejestruj(uczelnia);
-        uzytkownicy.push_back(nowy);
-        return nowy;
-    }
-
     cout << "Nie zalogowano.\n";
     return nullptr;
 }
 
 
-void User::wyloguj() {
+User* User::wyloguj() {
     zalogowany = false;
     cout << "Wylogowano uzytkownika." << endl;
+	return nullptr;
 }
 
 User::User(string imie, string nazwisko, Wydzial* wydzial, string rola)

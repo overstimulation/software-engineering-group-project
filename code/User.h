@@ -45,8 +45,8 @@ public:
 	void wyslijWiadomosc(Poczta* poczta, Wiadomosc* wiadomosc);
 	static User* zarejestruj(Uczelnia* uczelnia);
 	bool weryfikuj(const string& login, const string& haslo);
-	static User* zaloguj(const string& login, const string& haslo, list<User*>& uzytkownicy,Uczelnia* uczelnia);
-	void wyloguj();
+	static User* zaloguj(Uczelnia* uczelnia);
+	User* wyloguj();
 	User(string imie, string nazwisko, Wydzial* wydzial, string rola);
 private:
 	int id;

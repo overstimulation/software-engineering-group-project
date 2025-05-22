@@ -11,6 +11,8 @@
 
 #include "Wykladowca.h"
 #include "Kurs.h"
+#include "Wydzial.h"
+#include "Uczelnia.h"
 
 string Wykladowca::getTytulNaukowy()
 {
@@ -54,4 +56,7 @@ void Wykladowca::stworzKurs()
 }
 
 Wykladowca::Wykladowca(string imie, string nazwisko, Wydzial *wydzial, string tytul, string specjalizacja)
-    : User(imie, nazwisko, wydzial, "wykladowca"), tytulNaukowy(tytul), specjalizacja(specjalizacja) {}
+    : User(imie, nazwisko, wydzial, "wykladowca"), tytulNaukowy(tytul), specjalizacja(specjalizacja) {
+		wydzial->dodajWykladowce(this);
+		wydzial->getUczelnia()->dodajWykladowce(this);
+	}

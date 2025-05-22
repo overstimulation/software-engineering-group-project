@@ -79,5 +79,7 @@ bool Wydzial::usunWykladowce(Wykladowca* wykladowca) {
 }
 
 Wydzial::Wydzial(string nazwa, Uczelnia* uczelnia)
-    : nazwa(nazwa), uczelnia(uczelnia) {}
+    : nazwa(nazwa), uczelnia(uczelnia) {
+		uczelnia->dodajWydzial(this);
+	}
 

@@ -10,6 +10,8 @@
 //
 
 #include "Student.h"
+#include "Wydzial.h"
+#include "Uczelnia.h"
 
 int Student::getNrIndeksu()
 {
@@ -27,4 +29,7 @@ int Student::getStopienStudiow()
 }
 
 Student::Student(string imie, string nazwisko, Wydzial *wydzial, int indeks, int rok, int stopien)
-    : User(imie, nazwisko, wydzial, "student"), nrIndeksu(indeks), rokStudiow(rok), stopienStudiow(stopien) {}
+    : User(imie, nazwisko, wydzial, "student"), nrIndeksu(indeks), rokStudiow(rok), stopienStudiow(stopien) {
+		wydzial->dodajStudenta(this);
+		wydzial->getUczelnia()->dodajStudenta(this);
+	}
