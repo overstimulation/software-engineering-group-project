@@ -9,12 +9,12 @@
 //
 //
 
-
 #include "User.h"
 #include "Wydzial.h"
 #include "Kurs.h"
 #include "Wiadomosc.h"
 
+<<<<<<< Updated upstream
 int User::getId() {
 
 }
@@ -77,5 +77,220 @@ void User::wyloguj() {
 
 User::User(string imie, string nazwisko, Wydzial* wydzial) {
 
+=======
+int User::getId()
+{
+    return id;
 }
 
+string User::getImie()
+{
+    return imie;
+}
+
+string User::getNazwisko()
+{
+    return nazwisko;
+}
+
+string User::getEmail()
+{
+    return email;
+}
+
+string User::getLogin()
+{
+    return login;
+}
+
+string User::getHaslo()
+{
+    return haslo;
+}
+
+bool User::getZalogowany()
+{
+    return zalogowany;
+}
+
+string User::getRola()
+{
+    return rola;
+}
+
+Wydzial *User::getWydzial()
+{
+    return wydzial;
+}
+
+list<Kurs *> *User::getKursy()
+{
+    return kursy;
+}
+
+void User::setLogin(string newLogin)
+{
+    login = newLogin;
+}
+
+void User::setHaslo(string haslo)
+{
+    User::haslo = haslo;
+}
+
+list<Wiadomosc *> User::sprawdzWiadomosci(Poczta *poczta)
+{
+    return poczta->getWiadomosci(this);
+}
+
+void User::wyslijWiadomosc(Poczta *poczta, Wiadomosc *wiadomosc)
+{
+    poczta->wyslijWiadomosc(wiadomosc);
+}
+
+User *User::zarejestruj(Uczelnia *uczelnia)
+{
+    string imie, nazwisko, login, haslo, nazwaWydzialu, rola;
+    Wydzial *wybranyWydzial = nullptr;
+    cout << "Rejestracja nowego uzytkownika:\n";
+
+    // Imie
+    do
+    {
+        cout << "Imie: ";
+        cin >> imie;
+        if (imie.empty())
+            cout << "Imie nie moze byc puste!\n";
+    } while (imie.empty());
+    // Nazwisko
+    do
+    {
+        cout << "Nazwisko: ";
+        cin >> nazwisko;
+        if (nazwisko.empty())
+            cout << "Nazwisko nie moze byc puste!\n";
+    } while (nazwisko.empty());
+    // Login
+    bool loginZajety = false;
+    do
+    {
+        cout << "Login: ";
+        cin >> login;
+        loginZajety = false;
+        for (User *u : uczelnia->getUzytkownicy())
+        {
+            if (u->getLogin() == login)
+            {
+                loginZajety = true;
+                cout << "Login jest juz zajety! Wybierz inny.\n";
+                break;
+            }
+        }
+        if (login.empty())
+            cout << "Login nie moze byc pusty!\n";
+    } while (login.empty() || loginZajety);
+    // Haslo
+    do
+    {
+        cout << "Haslo: ";
+        cin >> haslo;
+        if (haslo.empty())
+            cout << "Haslo nie moze byc puste!\n";
+    } while (haslo.empty());
+    // Rola
+    cout << "Zarejestruj jako wykladowca/student? ";
+    cin >> rola;
+    while (rola != "student" && rola != "wykladowca")
+    {
+        cout << "Blad! Sprobuj jeszcze raz. Zarejestruj jako Wykladowca/Student? ";
+        cin >> rola;
+    }
+    // Wydzial
+    while (true)
+    {
+        cout << "Podaj nazwe wydzialu: ";
+        cin >> nazwaWydzialu;
+        bool znaleziono = false;
+        for (Wydzial *w : uczelnia->getWydzialy())
+        {
+            if (w->getNazwa() == nazwaWydzialu)
+            {
+                wybranyWydzial = w;
+                znaleziono = true;
+                break;
+            }
+        }
+        if (znaleziono)
+            break;
+        else
+            cout << "Nie ma takiego wydzialu. Sprobuj ponownie.\n";
+    }
+    User *nowy = nullptr;
+    if (rola == "student")
+    {
+        int indeks, stopien, rok;
+        cout << "Podaj indeks: ";
+        cin >> indeks;
+        cout << "Podaj stopien studiow: ";
+        cin >> stopien;
+        cout << "Podaj rok studiow: ";
+        cin >> rok;
+        nowy = new Student(imie, nazwisko, wybranyWydzial, indeks, rok, stopien);
+    }
+    else if (rola == "wykladowca")
+    {
+        string tytul, specjalizacja;
+        cout << "Podaj tytul: ";
+        cin >> tytul;
+        cout << "Podaj specjalizacje: ";
+        cin >> specjalizacja;
+        nowy = new Wykladowca(imie, nazwisko, wybranyWydzial, tytul, specjalizacja);
+    }
+    nowy->setLogin(login);
+    nowy->setHaslo(haslo);
+    nowy->zalogowany = true;
+    cout << "Rejestracja przebiegla pomyslnie! Mozesz sie teraz zalogowac.\n";
+    return nowy;
+}
+
+bool User::weryfikuj(const string &podanyLogin, const string &podaneHaslo)
+{
+    return podanyLogin == login && podaneHaslo == haslo;
+}
+
+User *User::zaloguj(Uczelnia *uczelnia)
+{
+    string login, haslo;
+    cout << "Logowanie do systemu:\n";
+    cout << "Login: ";
+    cin >> login;
+    cout << "Haslo: ";
+    cin >> haslo;
+    for (User *u : uczelnia->getUzytkownicy())
+    {
+        if (u->weryfikuj(login, haslo))
+        {
+            u->zalogowany = true;
+            cout << "Zalogowano pomyslnie jako: " << u->imie << " " << u->nazwisko << endl;
+            return u;
+        }
+    }
+    cout << "Nieprawidlowy login lub haslo. Jesli nie masz konta, wybierz opcje rejestracji.\n";
+    return nullptr;
+}
+
+User *User::wyloguj()
+{
+    zalogowany = false;
+    cout << "Uzytkownik zostal wylogowany. Dziekujemy za skorzystanie z systemu!" << endl;
+    return nullptr;
+}
+
+User::User(string imie, string nazwisko, Wydzial *wydzial, string rola)
+    : imie(imie), nazwisko(nazwisko), wydzial(wydzial), rola(rola)
+{
+    static int nextId = 1;
+    id = nextId++;
+    zalogowany = false;
+>>>>>>> Stashed changes
+}

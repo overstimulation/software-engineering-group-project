@@ -22,4 +22,9 @@ Student *Ocena::getAdresat()
     return adresatOceny;
 }
 
-Ocena::Ocena(int wartosc, Student *adresat) : wartosc(wartosc), adresatOceny(adresat) {}
+string Ocena::getPrzedmiot()
+{
+    return przedmiot;
+}
+
+Ocena::Ocena(int wartosc, string przedmiot, Student *adresat) : wartosc(wartosc), przedmiot(przedmiot), adresatOceny(adresat) {}

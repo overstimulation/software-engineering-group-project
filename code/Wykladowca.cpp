@@ -38,7 +38,11 @@ void Wykladowca::stworzKurs()
         cout << "Podaj nazwe kursu: ";
         getline(cin, nazwa);
         kursIstnieje = false;
+<<<<<<< Updated upstream
         for (Kurs &kurs : mojWydzial->getKursy())
+=======
+        for (Kurs *kurs : mojWydzial->getKursy())
+>>>>>>> Stashed changes
         {
             if (kurs.getNazwa() == nazwa)
             {
@@ -54,4 +58,12 @@ void Wykladowca::stworzKurs()
 }
 
 Wykladowca::Wykladowca(string imie, string nazwisko, Wydzial *wydzial, string tytul, string specjalizacja)
+<<<<<<< Updated upstream
     : User(imie, nazwisko, wydzial), tytulNaukowy(tytul), specjalizacja(specjalizacja) {}
+=======
+    : User(imie, nazwisko, wydzial, "wykladowca"), tytulNaukowy(tytul), specjalizacja(specjalizacja)
+{
+    wydzial->dodajWykladowce(this);
+    wydzial->getUczelnia()->dodajWykladowce(this);
+}
+>>>>>>> Stashed changes

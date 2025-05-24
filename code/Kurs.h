@@ -39,7 +39,9 @@ public:
 	bool usunOcene(Ocena *ocena);
 	bool usunUczestnika(int id);
 	void dodajPlikDoSkrzynki(int idSkrzynki, Plik *plik);
+	bool dodajPlikDoSkrzynkiZWalidacja(int idSkrzynki, Plik *plik, string &komunikat);
 	Kurs(string nazwa, Wykladowca *prowadzacy);
+	list<Ocena *> getOceny();
 
 private:
 	string nazwa;

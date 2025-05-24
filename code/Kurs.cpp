@@ -19,27 +19,54 @@
 
 string Kurs::getNazwa()
 {
+<<<<<<< Updated upstream
     return nazwa;
+=======
+	return nazwa;
+>>>>>>> Stashed changes
 }
 
 list<Student *> Kurs::getStudenci()
 {
+<<<<<<< Updated upstream
+=======
+	return studenci;
+>>>>>>> Stashed changes
 }
 
 list<Wykladowca *> Kurs::getWykladowcy()
 {
+<<<<<<< Updated upstream
+=======
+	return wykladowcy;
+>>>>>>> Stashed changes
 }
 
 list<Skrzynka *> Kurs::getSkrzynki()
 {
+<<<<<<< Updated upstream
 }
 
 void Kurs::dodajSkrzynke(Skrzynka *skrzynka)
 {
+=======
+	return skrzynkiPlikow;
+}
+
+list<Ocena *> Kurs::getOceny()
+{
+	return oceny;
+}
+
+void Kurs::dodajSkrzynke(Skrzynka *skrzynka)
+{
+	skrzynkiPlikow.push_back(skrzynka);
+>>>>>>> Stashed changes
 }
 
 void Kurs::dodajOcene(Ocena *ocena)
 {
+<<<<<<< Updated upstream
 }
 
 void Kurs::dodajUczestnika(User *uczestnik)
@@ -71,3 +98,110 @@ Kurs::Kurs(string nazwa, Wykladowca *prowadzacy)
 {
     wykladowcy.push_back(prowadzacy);
 }
+=======
+	oceny.push_back(ocena);
+}
+
+void Kurs::dodajStudenta(Student *student)
+{
+	studenci.push_back(student);
+}
+
+void Kurs::dodajWykladowce(Wykladowca *wykladowca)
+{
+	wykladowcy.push_back(wykladowca);
+}
+
+bool Kurs::usunSkrzynke(int id)
+{
+	for (Skrzynka *skrzynka : skrzynkiPlikow)
+	{
+		if (skrzynka->getId() == id)
+		{
+			skrzynkiPlikow.remove(skrzynka);
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Kurs::usunOcene(Ocena *ocena)
+{
+	for (Ocena *o : oceny)
+	{
+		if (o->getWartosc() == ocena->getWartosc() && o->getAdresat() == ocena->getAdresat())
+		{
+			oceny.remove(ocena);
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Kurs::usunUczestnika(int id)
+{
+	for (Student *s : studenci)
+	{
+		if (s->getId() == id)
+		{
+			studenci.remove(s);
+			return true;
+		}
+	}
+	for (Wykladowca *w : wykladowcy)
+	{
+		if (w->getId() == id)
+		{
+			wykladowcy.remove(w);
+			return true;
+		}
+	}
+	return false;
+}
+
+void Kurs::dodajPlikDoSkrzynki(int idSkrzynki, Plik *plik)
+{
+	for (Skrzynka *skrzynka : skrzynkiPlikow)
+	{
+		if (skrzynka->getId() == idSkrzynki)
+		{
+			skrzynka->setPlik(plik);
+		}
+	}
+}
+
+bool Kurs::dodajPlikDoSkrzynkiZWalidacja(int idSkrzynki, Plik *plik, string &komunikat)
+{
+	for (Skrzynka *skrzynka : skrzynkiPlikow)
+	{
+		if (skrzynka->getId() == idSkrzynki)
+		{
+			if (skrzynka->getPlik() != nullptr)
+			{
+				komunikat = "Brak miejsca w skrzynce.";
+				return false;
+			}
+			if (plik->getRozmiar() > 10485760)
+			{
+				komunikat = "Plik przekracza dozwolony rozmiar (10MB).";
+				return false;
+			}
+			if (plik->getNazwa().find('.') == string::npos)
+			{
+				komunikat = "Nieobslugiwany format pliku.";
+				return false;
+			}
+			skrzynka->setPlik(plik);
+			komunikat = "Plik zostal dodany.";
+			return true;
+		}
+	}
+	komunikat = "Nie znaleziono skrzynki.";
+	return false;
+}
+
+Kurs::Kurs(string nazwa, Wykladowca *prowadzacy) : nazwa(nazwa)
+{
+	wykladowcy.push_back(prowadzacy);
+}
+>>>>>>> Stashed changes

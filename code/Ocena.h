@@ -9,7 +9,6 @@
 //
 //
 
-
 #if !defined(_OCENA_H)
 #define _OCENA_H
 
@@ -21,14 +20,18 @@ using namespace std;
 
 class Student;
 
-class Ocena {
+class Ocena
+{
 public:
 	int getWartosc();
-	Student* getAdresat();
-	Ocena(int wartosc, Student* adresat);
+	Student *getAdresat();
+	string getPrzedmiot();
+	Ocena(int wartosc, string przedmiot, Student *adresat);
+
 private:
 	int wartosc;
-	Student* adresatOceny;
+	string przedmiot;
+	Student *adresatOceny;
 };
 
-#endif  //_OCENA_H
+#endif //_OCENA_H
