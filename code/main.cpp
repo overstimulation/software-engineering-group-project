@@ -122,7 +122,7 @@ void notLoggedPrompt(string *input, User *&zalogowany, Uczelnia *&UMCS)
 void zarzadzanieKursem(User *&zalogowany)
 {
     clearConsole();
-    printMenuHeader("Zarządzanie kursem");
+    printMenuHeader("Zarzadzanie kursem");
     Wykladowca *wykladowca = static_cast<Wykladowca *>(zalogowany);
     list<Kurs *> kursy = wykladowca->getWydzial()->getKursy();
     printKursy(kursy);
@@ -262,17 +262,23 @@ void zarzadzanieKursem(User *&zalogowany)
         {
             cout << "Studenci:\n";
             for (Student *s : kurs->getStudenci())
+            {
                 cout << "ID: " << s->getId() << ", " << s->getImie() << " " << s->getNazwisko() << "\n";
+            }
             cout << "Wykladowcy:\n";
             for (Wykladowca *w : kurs->getWykladowcy())
+            {
                 cout << "ID: " << w->getId() << ", " << w->getImie() << " " << w->getNazwisko() << "\n";
+            }
             pressEnterToContinue();
         }
         else if (opcja == "6")
         {
             cout << "Skrzynki plikow:\n";
             for (Skrzynka *s : kurs->getSkrzynki())
+            {
                 cout << "ID: " << s->getId() << ", " << s->getNazwa() << "\n";
+            }
             pressEnterToContinue();
         }
         else if (opcja == "7")
@@ -314,7 +320,7 @@ void zarzadzanieKursem(User *&zalogowany)
             {
                 cout << "Plik w skrzynce: " << plik->getNazwa() << "\n";
                 cout << "Data dodania: " << plik->getDataDodania() << "\n";
-                cout << "Rozmiar: " << plik->getRozmiar() << " bajtów\n";
+                cout << "Rozmiar: " << plik->getRozmiar() << " bajtow\n";
             }
             else
             {
