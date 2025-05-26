@@ -215,13 +215,13 @@ void poczta(User *&zalogowany)
     else if (wybor == "2")
     {
         // Wyslij wiadomosc
-        string loginOdbiorcy, temat, tresc;
-        cout << "Podaj login odbiorcy: ";
-        cin >> loginOdbiorcy;
+        string emailOdbiorcy, temat, tresc;
+        cout << "Podaj e-mail odbiorcy: ";
+        cin >> emailOdbiorcy;
         User *odbiorca = nullptr;
         for (User *u : zalogowany->getWydzial()->getUczelnia()->getUzytkownicy())
         {
-            if (u->getLogin() == loginOdbiorcy)
+            if (u->getEmail() == emailOdbiorcy)
             {
                 odbiorca = u;
                 break;
@@ -229,7 +229,7 @@ void poczta(User *&zalogowany)
         }
         if (!odbiorca)
         {
-            cout << "Nie znaleziono odbiorcy o podanym loginie.\n";
+            cout << "Nie znaleziono odbiorcy o podanym e-mailu.\n";
             return;
         }
         cout << "Temat: ";
