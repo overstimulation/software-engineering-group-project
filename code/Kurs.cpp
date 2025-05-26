@@ -57,6 +57,7 @@ void Kurs::dodajStudenta(Student *student)
 		}
 	}
 	studenci.push_back(student);
+	student->getKursy()->push_back(this);
 }
 
 void Kurs::dodajWykladowce(Wykladowca *wykladowca)
@@ -69,6 +70,7 @@ void Kurs::dodajWykladowce(Wykladowca *wykladowca)
 		}
 	}
 	wykladowcy.push_back(wykladowca);
+	wykladowca->getKursy()->push_back(this);
 }
 
 bool Kurs::usunSkrzynke(int id)
@@ -104,6 +106,7 @@ bool Kurs::usunUczestnika(int id)
 		if (s->getId() == id)
 		{
 			studenci.remove(s);
+			s->getKursy()->remove(this);
 			return true;
 		}
 	}
@@ -112,6 +115,7 @@ bool Kurs::usunUczestnika(int id)
 		if (w->getId() == id)
 		{
 			wykladowcy.remove(w);
+			w->getKursy()->remove(this);
 			return true;
 		}
 	}

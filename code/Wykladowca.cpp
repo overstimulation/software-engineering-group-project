@@ -61,6 +61,8 @@ void Wykladowca::stworzKurs()
     Kurs *nowyKurs = new Kurs(nazwa, this);
     mojWydzial->dodajKurs(nowyKurs);
     cout << "Kurs '" << nazwa << "' zostal dodany do bazy aktywnych kursow." << endl;
+	cout << "Nacisnij Enter, aby kontynuowac...";
+    cin.get();
     return;
 }
 

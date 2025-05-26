@@ -40,7 +40,6 @@ void clearConsole()
 void pressEnterToContinue()
 {
     cout << "Nacisnij Enter, aby kontynuowac...";
-    cin.ignore();
     cin.get();
 }
 
@@ -185,8 +184,8 @@ void zarzadzanieKursem(User *&zalogowany)
             else
             {
                 cout << "Nie znaleziono skrzynki o podanym ID.";
-                pressEnterToContinue();
             }
+			pressEnterToContinue();
         }
         else if (opcja == "3")
         {
@@ -212,6 +211,7 @@ void zarzadzanieKursem(User *&zalogowany)
                 if (s)
                 {
                     kurs->dodajStudenta(s);
+					// s->getKursy()->push_back(kurs);
                     cout << "Dodano studenta. ";
                 }
                 else
@@ -237,6 +237,7 @@ void zarzadzanieKursem(User *&zalogowany)
                 if (w)
                 {
                     kurs->dodajWykladowce(w);
+					// w->getKursy()->push_back(kurs);
                     cout << "Dodano wykladowce. ";
                 }
                 else
@@ -313,6 +314,7 @@ void zarzadzanieKursem(User *&zalogowany)
             {
                 cout << "Nie znaleziono skrzynki o podanym ID.\n";
                 pressEnterToContinue();
+				cin.ignore();
                 continue;
             }
             Plik *plik = wybranaSkrzynka->getPlik();
@@ -321,6 +323,7 @@ void zarzadzanieKursem(User *&zalogowany)
                 cout << "Plik w skrzynce: " << plik->getNazwa() << "\n";
                 cout << "Data dodania: " << plik->getDataDodania() << "\n";
                 cout << "Rozmiar: " << plik->getRozmiar() << " bajtow\n";
+				pressEnterToContinue();
             }
             else
             {
@@ -349,6 +352,7 @@ void zarzadzaniePlikami(User *&zalogowany)
     {
         cout << "Brak kursow przypisanych do uzytkownika.\n";
         pressEnterToContinue();
+		cin.ignore();
         return;
     }
     printKursy(*kursy);
@@ -368,6 +372,7 @@ void zarzadzaniePlikami(User *&zalogowany)
     {
         cout << "Nie znaleziono kursu.\n";
         pressEnterToContinue();
+		cin.ignore();
         return;
     }
     auto skrzynki = wybranyKurs->getSkrzynki();
@@ -375,6 +380,7 @@ void zarzadzaniePlikami(User *&zalogowany)
     {
         cout << "Brak skrzynek w tym kursie.\n";
         pressEnterToContinue();
+		cin.ignore();
         return;
     }
     cout << "Dostepne skrzynki:\n";
