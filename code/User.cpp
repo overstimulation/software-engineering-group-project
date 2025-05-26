@@ -17,6 +17,7 @@
 #include "Uczelnia.h"
 #include "Student.h"
 #include "Wykladowca.h"
+#include <limits>
 
 int User::getId()
 {

@@ -343,6 +343,7 @@ void zarzadzaniePlikami(User *&zalogowany)
     if (!kursy || kursy->empty())
     {
         cout << "Brak kursow przypisanych do uzytkownika.\n";
+        pressEnterToContinue();
         return;
     }
     printKursy(*kursy);
