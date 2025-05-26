@@ -148,13 +148,8 @@ void zarzadzanieKursem(User *&zalogowany)
 void zarzadzaniePlikami(User *&zalogowany)
 {
     clearConsole();
-    printMenuHeader("Zarządzanie plikami");
+    printMenuHeader("Zarzadzanie plikami");
     cout << "Zarzadzanie plikami w skrzynce:\n";
-    if (zalogowany->getRola() != "student" && zalogowany->getRola() != "wykladowca")
-    {
-        cout << "Brak uprawnien do zarzadzania plikami.\n";
-        return;
-    }
     list<Kurs *> *kursy = zalogowany->getKursy();
     if (!kursy || kursy->empty())
     {
@@ -258,10 +253,16 @@ void poczta(User *&zalogowany)
             advance(it, nr - 1);
             Wiadomosc *wybrana = *it;
             cout << "Temat: " << wybrana->getTemat() << "\nTresc: " << wybrana->getTresc() << "\nData: " << wybrana->getData() << "\n";
+            cout << "Nacisnij Enter, aby wrocic do menu...";
+            cin.ignore();
+            cin.get();
         }
         else
         {
             cout << "Wyjscie z widoku wiadomosci.\n";
+            cout << "Nacisnij Enter, aby wrocic do menu...";
+            cin.ignore();
+            cin.get();
         }
     }
     else if (wybor == "2")
