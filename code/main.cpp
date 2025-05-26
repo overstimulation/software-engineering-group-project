@@ -1,5 +1,6 @@
 #include <iostream>
 #include <list>
+#include <vector>
 #include <ctime>
 #include "Uczelnia.h"
 #include "Wydzial.h"
@@ -11,6 +12,7 @@
 #include "Wiadomosc.h"
 #include "Skrzynka.h"
 #include "Plik.h"
+#include "Ocena.h"
 
 // Do logowania
 const string LOGOWANIE = "1";
@@ -168,7 +170,8 @@ void zarzadzanieKursem(User *&zalogowany)
         cout << "6. Wyswietl skrzynki plikow\n";
         cout << "7. Przegladaj pliki w skrzynkach\n";
         cout << "8. Wyswietl studentow i wykladowcow na wydziale\n";
-        cout << "9. Wyjdz\n";
+        cout << "9. Zarzadzaj ocenami\n";
+        cout << "0. Wyjdz\n";
         cout << "> "; // Znak zachety
         string opcja;
         getline(cin, opcja);
@@ -360,6 +363,126 @@ void zarzadzanieKursem(User *&zalogowany)
             pressEnterToContinue();
         }
         else if (opcja == "9")
+        {
+            // Zarzadzanie ocenami
+            bool ocenyRunning = true;
+            while (ocenyRunning)
+            {
+                clearConsole();
+                printMenuHeader("Zarzadzanie ocenami w kursie: " + kurs->getNazwa());
+                cout << "Studenci w kursie:\n";
+                for (Student *s : kurs->getStudenci())
+                {
+                    cout << "ID: " << s->getId() << ", " << s->getImie() << " " << s->getNazwisko() << "\n";
+                }
+                cout << "Podaj ID studenta lub 0 aby wyjsc: ";
+                int idStudenta;
+                cin >> idStudenta;
+                cin.ignore();
+                if (idStudenta == 0)
+                    break;
+                Student *wybrany = nullptr;
+                for (Student *s : kurs->getStudenci())
+                {
+                    if (s->getId() == idStudenta)
+                    {
+                        wybrany = s;
+                        break;
+                    }
+                }
+                if (!wybrany)
+                {
+                    cout << "Nie znaleziono studenta o podanym ID.\n";
+                    pressEnterToContinue();
+                    continue;
+                }
+                bool studentOceny = true;
+                while (studentOceny)
+                {
+                    clearConsole();
+                    printMenuHeader("Oceny studenta: " + wybrany->getImie() + " " + wybrany->getNazwisko());
+                    cout << "1. Dodaj ocene\n2. Usun ocene\n3. Pokaz oceny\n0. Powrot\n> ";
+                    string wybor;
+                    getline(cin, wybor);
+                    if (wybor == "1")
+                    {
+                        cout << "Podaj wartosc oceny (2-5): ";
+                        int wartosc;
+                        cin >> wartosc;
+                        cin.ignore();
+                        if (wartosc < 2 || wartosc > 5)
+                        {
+                            cout << "Nieprawidlowa wartosc oceny.\n";
+                            pressEnterToContinue();
+                            continue;
+                        }
+                        Ocena *nowa = new Ocena(wartosc, wybrany);
+                        kurs->dodajOcene(nowa);
+                        cout << "Dodano ocene.\n";
+                        pressEnterToContinue();
+                    }
+                    else if (wybor == "2")
+                    {
+                        // Pokaz oceny i pozwol usunac
+                        std::vector<Ocena *> ocenyStudenta;
+                        int idx = 1;
+                        for (Ocena *o : kurs->getOceny())
+                        {
+                            if (o->getAdresat() == wybrany)
+                            {
+                                cout << idx << ". Ocena: " << o->getWartosc() << "\n";
+                                ocenyStudenta.push_back(o);
+                                idx++;
+                            }
+                        }
+                        if (ocenyStudenta.empty())
+                        {
+                            cout << "Brak ocen do usuniecia.\n";
+                            pressEnterToContinue();
+                            continue;
+                        }
+                        cout << "Podaj numer oceny do usuniecia lub 0 aby anulowac: ";
+                        int nr;
+                        cin >> nr;
+                        cin.ignore();
+                        if (nr > 0 && nr <= ocenyStudenta.size())
+                        {
+                            if (kurs->usunOcene(ocenyStudenta[nr - 1]))
+                                cout << "Usunieto ocene.\n";
+                            else
+                                cout << "Blad usuwania oceny.\n";
+                        }
+                        else
+                        {
+                            cout << "Anulowano.\n";
+                        }
+                        pressEnterToContinue();
+                    }
+                    else if (wybor == "3")
+                    {
+                        cout << "Oceny studenta:\n";
+                        for (Ocena *o : kurs->getOceny())
+                        {
+                            if (o->getAdresat() == wybrany)
+                            {
+                                cout << "Ocena: " << o->getWartosc() << "\n";
+                            }
+                        }
+                        pressEnterToContinue();
+                    }
+                    else if (wybor == "0")
+                    {
+                        studentOceny = false;
+                    }
+                    else
+                    {
+                        cout << "Nieznana opcja.\n";
+                        pressEnterToContinue();
+                    }
+                }
+            }
+        }
+        else if (opcja == "0")
         {
             running = false;
         }

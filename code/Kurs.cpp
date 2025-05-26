@@ -37,6 +37,11 @@ list<Skrzynka *> Kurs::getSkrzynki()
 	return skrzynkiPlikow;
 }
 
+list<Ocena *> Kurs::getOceny()
+{
+	return oceny;
+}
+
 void Kurs::dodajSkrzynke(Skrzynka *skrzynka)
 {
 	skrzynkiPlikow.push_back(skrzynka);

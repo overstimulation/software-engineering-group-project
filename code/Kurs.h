@@ -32,6 +32,7 @@ public:
 	list<Student *> getStudenci();
 	list<Wykladowca *> getWykladowcy();
 	list<Skrzynka *> getSkrzynki();
+	list<Ocena *> getOceny();
 	void dodajSkrzynke(Skrzynka *skrzynka);
 	void dodajOcene(Ocena *ocena);
 	void dodajStudenta(Student *student);
