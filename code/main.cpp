@@ -39,6 +39,7 @@ void clearConsole()
 
 void printMenuHeader(const string &menuName)
 {
+    clearConsole();
     string line(menuName.length() + 2, '=');
     cout << line << "\n"
          << menuName << "\n"
@@ -109,42 +110,6 @@ void notLoggedPrompt(string *input, User *&zalogowany, Uczelnia *&UMCS)
         printMenuHeader("Rejestracja");
         zalogowany = User::zarejestruj(UMCS);
     }
-}
-
-void stworzKurs(User *&zalogowany)
-{
-    clearConsole();
-    printMenuHeader("Tworzenie kursu");
-
-    bool istnieje = false;
-    string nazwaKursu;
-    Wykladowca *wykladowca = static_cast<Wykladowca *>(zalogowany);
-
-    do
-    {
-        cout << "Tworzenie nowego kursu:\n";
-        cout << "Nazwa: ";
-        cin >> nazwaKursu;
-        istnieje = false;
-
-        for (Kurs *k : wykladowca->getWydzial()->getKursy())
-        {
-            if (k->getNazwa() == nazwaKursu)
-            {
-                istnieje = true;
-                break;
-            }
-        }
-
-        if (istnieje)
-        {
-            cout << "Kurs o podanej nazwie juz istnieje. Sprobuj ponownie.\n";
-        }
-    } while (istnieje);
-
-    Kurs *nowyKurs = new Kurs(nazwaKursu, wykladowca);
-    wykladowca->getWydzial()->dodajKurs(nowyKurs);
-    cout << "Pomyslnie stworzono kurs.\n";
 }
 
 void zarzadzanieKursem(User *&zalogowany)
@@ -365,7 +330,7 @@ void loggedPrompt(string *input, User *&zalogowany)
     }
     else if (*input == STWORZ_KURS && rola == "wykladowca")
     {
-        stworzKurs(zalogowany);
+        static_cast<Wykladowca *>(zalogowany)->stworzKurs();
     }
     else if (*input == ZARZADZANIE_KURS && rola == "wykladowca")
     {

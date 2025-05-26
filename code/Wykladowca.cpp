@@ -13,6 +13,7 @@
 #include "Kurs.h"
 #include "Wydzial.h"
 #include "Uczelnia.h"
+#include <limits>
 
 string Wykladowca::getTytulNaukowy()
 {
@@ -32,15 +33,22 @@ Wydzial *Wykladowca::getWydzial()
 void Wykladowca::stworzKurs()
 {
     Wydzial *mojWydzial = this->getWydzial();
-    cout << "--- Panel tworzenia kursu ---" << endl;
+
+    string menuName = "Panel tworzenia kursu";
+    string line(menuName.length() + 2, '=');
+    cout << line << "\n"
+         << menuName << "\n"
+         << line << "\n";
+
     string nazwa;
     bool kursIstnieje = false;
     do
     {
         cout << "Podaj nazwe kursu: ";
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         getline(cin, nazwa);
         kursIstnieje = false;
-        for (Kurs* kurs : mojWydzial->getKursy())
+        for (Kurs *kurs : mojWydzial->getKursy())
         {
             if (kurs->getNazwa() == nazwa)
             {
@@ -53,10 +61,12 @@ void Wykladowca::stworzKurs()
     Kurs *nowyKurs = new Kurs(nazwa, this);
     mojWydzial->dodajKurs(nowyKurs);
     cout << "Kurs '" << nazwa << "' zostal dodany do bazy aktywnych kursow." << endl;
+    return;
 }
 
 Wykladowca::Wykladowca(string imie, string nazwisko, Wydzial *wydzial, string tytul, string specjalizacja)
-    : User(imie, nazwisko, wydzial, "wykladowca"), tytulNaukowy(tytul), specjalizacja(specjalizacja) {
-		wydzial->dodajWykladowce(this);
-		wydzial->getUczelnia()->dodajWykladowce(this);
-	}
+    : User(imie, nazwisko, wydzial, "wykladowca"), tytulNaukowy(tytul), specjalizacja(specjalizacja)
+{
+    wydzial->dodajWykladowce(this);
+    wydzial->getUczelnia()->dodajWykladowce(this);
+}

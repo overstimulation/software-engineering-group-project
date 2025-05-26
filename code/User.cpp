@@ -133,7 +133,7 @@ User* User::zarejestruj(Uczelnia* uczelnia) {
     if(rola=="Wykladowca" || rola=="wykladowca" || rola=="W" || rola=="w")
     {
         string tytul, specjalizacja;
-        cout << "Podaj tytyl: ";
+        cout << "Podaj tytul: ";
         cin >> tytul;
         cout << "Podaj specjalizacje: ";
         cin >> specjalizacja;
