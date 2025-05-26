@@ -63,11 +63,6 @@ Celem projektu jest stworzenie systemu, który ułatwi komunikację pomiędzy wy
 </div>
 
 <div style="page-break-inside: avoid; break-inside: avoid;">
-	<p>Stwórz kurs</p>
-    <img src="assets/activity-diagrams/activity-diagram-stworz-kurs.png">
-</div>
-
-<div style="page-break-inside: avoid; break-inside: avoid;">
 	<p>Zarządzanie kursem</p>
     <img src="assets/activity-diagrams/activity-diagram-zarzadzanie-kursem.png">
 </div>
@@ -82,10 +77,6 @@ Celem projektu jest stworzenie systemu, który ułatwi komunikację pomiędzy wy
     <img src="assets/activity-diagrams/activity-diagram-zarzadzaj-ocenami.png">
 </div>
 
-<div style="page-break-inside: avoid; break-inside: avoid;">
-	<p>Zarządzanie plikami kursu</p>
-    <img src="assets/activity-diagrams/activity-diagram-zarzadzanie-plikami-kursu.png">
-</div>
 
 <div style="page-break-inside: avoid; break-inside: avoid;">
 	<p>Zarządzanie skrzynkami plików</p>
