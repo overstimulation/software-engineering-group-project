@@ -57,21 +57,6 @@ void Kurs::dodajStudenta(Student *student)
 		}
 	}
 	studenci.push_back(student);
-	// Dodaj kurs do studenta, jeśli nie ma
-	auto kursyStudenta = student->getKursy();
-	bool already = false;
-	for (Kurs *k : *kursyStudenta)
-	{
-		if (k == this)
-		{
-			already = true;
-			break;
-		}
-	}
-	if (!already)
-	{
-		kursyStudenta->push_back(this);
-	}
 }
 
 void Kurs::dodajWykladowce(Wykladowca *wykladowca)
