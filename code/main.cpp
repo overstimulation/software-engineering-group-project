@@ -26,6 +26,15 @@ const string WYLOGUJ = "4";
 // Zawsze
 const string OUT = "0";
 
+void clearConsole()
+{
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}
+
 void printStudents(list<Student *> studenci)
 {
     cout << "DEBUG studenci\n";
@@ -79,20 +88,20 @@ void notLoggedPrompt(string *input, User *&zalogowany, Uczelnia *&UMCS)
 
     if (*input == LOGOWANIE)
     {
-        system("cls");
+        clearConsole();
         printStudents(UMCS->getStudenci());
         zalogowany = User::zaloguj(UMCS);
     }
     else if (*input == REJESTRACJA)
     {
-        system("cls");
+        clearConsole();
         zalogowany = User::zarejestruj(UMCS);
     }
 }
 
 void stworzKurs(User *&zalogowany)
 {
-    system("cls");
+    clearConsole();
 
     bool istnieje = false;
     string nazwaKursu;
@@ -127,7 +136,7 @@ void stworzKurs(User *&zalogowany)
 
 void zarzadzanieKursem(User *&zalogowany)
 {
-    system("cls");
+    clearConsole();
     Wykladowca *wykladowca = static_cast<Wykladowca *>(zalogowany);
     list<Kurs *> kursy = wykladowca->getWydzial()->getKursy();
     printKursy(kursy);
@@ -159,13 +168,13 @@ void zarzadzanieKursem(User *&zalogowany)
 
 void zarzadzaniePlikami(User *&zalogowany)
 {
-    system("cls");
+    clearConsole();
     // TODO
 }
 
 void poczta(User *&zalogowany)
 {
-    system("cls");
+    clearConsole();
     static Poczta pocztaInst;
     cout << "Panel poczty:\n1. Sprawdz wiadomosci\n2. Wyslij wiadomosc\n0. Wyjdz\n> ";
     string wybor;
@@ -183,7 +192,10 @@ void poczta(User *&zalogowany)
         int idx = 1;
         for (Wiadomosc *w : wiadomosci)
         {
-            cout << idx++ << ". " << w->getTemat() << " (" << w->getData() << ")\n";
+            string data = w->getData();
+            if (!data.empty() && data.back() == '\n')
+                data.pop_back();
+            cout << idx++ << ". " << w->getTemat() << " (" << data << ")\n";
         }
         cout << "Podaj numer wiadomosci do odczytania lub 0 aby wyjsc: ";
         int nr;
@@ -289,7 +301,7 @@ int main()
     // Interface
     User *zalogowany = nullptr;
 
-    system("cls");
+    clearConsole();
     string input = "";
     while (input != OUT)
     {
