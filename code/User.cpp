@@ -104,7 +104,7 @@ User *User::zarejestruj(Uczelnia *uczelnia)
     cin >> login;
     cout << "Haslo: ";
     cin >> haslo;
-    cout << "Zarejestuj jako wykladowca/student? ";
+    cout << "Zarejestruj jako wykladowca/student? ";
     cin >> rola;
     while (rola != "student" && rola != "wykladowca")
     {
@@ -161,6 +161,9 @@ User *User::zarejestruj(Uczelnia *uczelnia)
         }
 
         nowy = new Student(imie, nazwisko, wybranyWydzial, indeks, rok, stopien);
+        cout << "Zarejestrowano studenta: " << imie << " " << nazwisko << endl;
+        cout << "Nacisnij Enter, aby kontynuowac...";
+        cin.get();
     }
 
     if (rola == "Wykladowca" || rola == "wykladowca" || rola == "W" || rola == "w")
@@ -172,6 +175,9 @@ User *User::zarejestruj(Uczelnia *uczelnia)
         cin >> specjalizacja;
 
         nowy = new Wykladowca(imie, nazwisko, wybranyWydzial, tytul, specjalizacja);
+        cout << "Zarejestrowano wykladowce: " << imie << " " << nazwisko << endl;
+        cout << "Nacisnij Enter, aby kontynuowac...";
+        cin.get();
     }
 
     nowy->setLogin(login);
