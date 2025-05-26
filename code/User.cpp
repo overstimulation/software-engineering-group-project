@@ -184,5 +184,6 @@ User::User(string imie, string nazwisko, Wydzial* wydzial, string rola)
     static int nextId = 1;
     id = nextId++;
     zalogowany = false;
+	email = imie + "." + nazwisko + "@" + wydzial->getUczelnia()->getEmailNazwa() + ".pl";
 }
 

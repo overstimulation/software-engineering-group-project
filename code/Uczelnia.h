@@ -27,6 +27,7 @@ class User;
 class Uczelnia {
 public:
 	string getNazwa();
+	string getEmailNazwa();
 	string getAdres();
 	list<Wydzial*> getWydzialy();
 	list<Student*> getStudenci();
