@@ -138,11 +138,26 @@ User *User::zarejestruj(Uczelnia *uczelnia)
     {
         int indeks, stopien, rok;
         cout << "Podaj indeks: ";
-        cin >> indeks;
+        while (!(cin >> indeks))
+        {
+            cout << "Blad! Indeks musi byc liczba. Sprobuj ponownie: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
         cout << "Podaj stopien studiow: ";
-        cin >> stopien;
+        while (!(cin >> stopien) || (stopien < 1 || stopien > 3))
+        {
+            cout << "Blad! Stopien studiow musi byc liczba od 1 do 3. Sprobuj ponownie: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
         cout << "Podaj rok studiow: ";
-        cin >> rok;
+        while (!(cin >> rok) || (rok < 1 || rok > 6))
+        {
+            cout << "Blad! Rok studiow musi byc liczba od 1 do 6. Sprobuj ponownie: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
 
         nowy = new Student(imie, nazwisko, wybranyWydzial, indeks, rok, stopien);
     }
