@@ -1,4 +1,5 @@
 #include <list>
+#include <limits>
 #include "Uczelnia.h"
 #include "Wydzial.h"
 #include "User.h"
@@ -40,7 +41,6 @@ void clearConsole()
 void pressEnterToContinue()
 {
     cout << "Nacisnij Enter, aby kontynuowac...";
-    cin.ignore();
     cin.get();
 }
 
@@ -103,6 +103,7 @@ void notLoggedPrompt(string *input, User *&zalogowany, Uczelnia *&UMCS)
     cout << OUT << ". Koniec\n";
     cout << "> ";
     cin >> *input;
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     if (*input == LOGOWANIE)
     {
@@ -179,7 +180,7 @@ void zarzadzanieKursem(User *&zalogowany)
             cout << "Podaj ID skrzynki do usuniecia: ";
             int id;
             cin >> id;
-            cin.ignore();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             if (kurs->usunSkrzynke(id))
                 cout << "Usunieto skrzynke. ";
             else
@@ -198,7 +199,7 @@ void zarzadzanieKursem(User *&zalogowany)
                 cout << "Podaj ID studenta: ";
                 int id;
                 cin >> id;
-                cin.ignore();
+                cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 // Szukaj studenta po ID na wydziale
                 Student *s = nullptr;
                 for (Student *st : kurs->getWykladowcy().front()->getWydzial()->getUczelnia()->getStudenci())
@@ -211,8 +212,13 @@ void zarzadzanieKursem(User *&zalogowany)
                 }
                 if (s)
                 {
+                    size_t before = kurs->getStudenci().size();
                     kurs->dodajStudenta(s);
-                    cout << "Dodano studenta. ";
+                    size_t after = kurs->getStudenci().size();
+                    if (after == before)
+                        cout << "Student jest już uczestnikiem kursu. ";
+                    else
+                        cout << "Dodano studenta. ";
                 }
                 else
                 {
@@ -224,7 +230,7 @@ void zarzadzanieKursem(User *&zalogowany)
                 cout << "Podaj ID wykladowcy: ";
                 int id;
                 cin >> id;
-                cin.ignore();
+                cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 Wykladowca *w = nullptr;
                 for (Wykladowca *wyk : kurs->getWykladowcy().front()->getWydzial()->getUczelnia()->getWykladowcy())
                 {
@@ -236,8 +242,13 @@ void zarzadzanieKursem(User *&zalogowany)
                 }
                 if (w)
                 {
+                    size_t before = kurs->getWykladowcy().size();
                     kurs->dodajWykladowce(w);
-                    cout << "Dodano wykladowce. ";
+                    size_t after = kurs->getWykladowcy().size();
+                    if (after == before)
+                        cout << "Wykladowca jest już uczestnikiem kursu. ";
+                    else
+                        cout << "Dodano wykladowce. ";
                 }
                 else
                 {
@@ -251,7 +262,7 @@ void zarzadzanieKursem(User *&zalogowany)
             cout << "Podaj ID uczestnika do usuniecia: ";
             int id;
             cin >> id;
-            cin.ignore();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             if (kurs->usunUczestnika(id))
                 cout << "Usunieto uczestnika. ";
             else
@@ -299,7 +310,7 @@ void zarzadzanieKursem(User *&zalogowany)
             cout << "Podaj ID skrzynki do sprawdzenia: ";
             int idSkrzynki;
             cin >> idSkrzynki;
-            cin.ignore();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             Skrzynka *wybranaSkrzynka = nullptr;
             for (Skrzynka *s : skrzynki)
             {
@@ -355,6 +366,7 @@ void zarzadzaniePlikami(User *&zalogowany)
     cout << "Podaj nazwe kursu: ";
     string nazwaKursu;
     cin >> nazwaKursu;
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     Kurs *wybranyKurs = nullptr;
     for (Kurs *k : *kursy)
     {
@@ -385,6 +397,7 @@ void zarzadzaniePlikami(User *&zalogowany)
     cout << "Podaj ID skrzynki: ";
     int idSkrzynki;
     cin >> idSkrzynki;
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     Skrzynka *wybranaSkrzynka = nullptr;
     for (Skrzynka *s : skrzynki)
     {
@@ -423,6 +436,7 @@ void poczta(User *&zalogowany)
     cout << "1. Sprawdz wiadomosci\n2. Wyslij wiadomosc\n0. Wyjdz\n> ";
     string wybor;
     cin >> wybor;
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     if (wybor == "1")
     {
         // Sprawdz wiadomosci
@@ -446,6 +460,7 @@ void poczta(User *&zalogowany)
         cout << "Podaj numer wiadomosci do odczytania lub 0 aby wyjsc: ";
         int nr;
         cin >> nr;
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         if (nr > 0 && nr <= wiadomosci.size())
         {
             auto it = wiadomosci.begin();
@@ -462,6 +477,7 @@ void poczta(User *&zalogowany)
         string emailOdbiorcy, temat, tresc;
         cout << "Podaj e-mail odbiorcy: ";
         cin >> emailOdbiorcy;
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         User *odbiorca = nullptr;
         for (User *u : zalogowany->getWydzial()->getUczelnia()->getUzytkownicy())
         {
@@ -478,7 +494,6 @@ void poczta(User *&zalogowany)
             return;
         }
         cout << "Temat: ";
-        cin.ignore();
         getline(cin, temat);
         cout << "Tresc: ";
         getline(cin, tresc);
@@ -515,6 +530,7 @@ void loggedPrompt(string *input, User *&zalogowany)
     cout << OUT << ". Koniec\n";
     cout << "> ";
     cin >> *input;
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     if (*input == WYLOGUJ)
     {
