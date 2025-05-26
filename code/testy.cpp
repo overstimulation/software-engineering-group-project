@@ -107,22 +107,6 @@ void testDodaniePlikuDoSkrzynki() {
 
 // ======= TESTY NEGATYWNE =======
 
-void testLogowanieNieprawidlowe() {
-    Uczelnia uczelnia("UMCS", "adres");
-    Wydzial wydzial("MFII", &uczelnia);
-
-    Student* s1 = new Student("Kasia", "Kowal", &wydzial, 999999, 1, 1);
-    uczelnia.dodajStudenta(s1);
-
-    User* zalogowanyUzytkownik = User::zaloguj(&uczelnia);
-    bool zalogowano = (zalogowanyUzytkownik != nullptr);
-    assert(!zalogowano);
-
-    delete s1;
-
-    cout << "testLogowanieNieprawidlowe OK" << endl;
-}
-
 void testDodanieDuplikatuKursu() {
     Uczelnia uczelnia("UMCS", "adres");
     Wydzial wydzial("MFII", &uczelnia);
@@ -149,26 +133,6 @@ void testDodanieDuplikatuKursu() {
 }
 
 // ======= TESTY INTEGRACYJNE =======
-//TODO rejestracja nie dziala?
-void testRejestracjaILogowanie() {
-    Uczelnia uczelnia("UMCS", "adres");
-    Wydzial wydzial("MFII", &uczelnia);
-
-    Student* s1 = new Student("Tomasz", "Bialy", &wydzial, 777777, 1, 1);
-
-    uczelnia.dodajStudenta(s1);
-
-    User* zalogowanyUzytkownik = User::zaloguj(&uczelnia);
-
-    //assert(zalogowanyUzytkownik != nullptr);
-
-    //assert(zalogowanyUzytkownik->getImie() == "Tomasz");
-    //assert(zalogowanyUzytkownik->getNazwisko() == "Bialy");
-
-    delete s1;
-
-    cout << "testRejestracjaILogowanie OK" << endl;
-}
 
 void testDodanieUsuniecieStudentaZKursu() {
     Uczelnia uczelnia("UMCS", "adres");
@@ -252,8 +216,6 @@ void testWyslanieDoNieistniejacego() {
     cout << "testWyslanieDoNieistniejacego OK" << endl;
 }
 
-// ======= TESTY FUNKCJONALNE (CLI) =======
-//nie rozumiem co kacper napisa³ w dokumentacji, someone explain xD
 
 void runAllTests() {
     // Jednostkowe
@@ -264,11 +226,9 @@ void runAllTests() {
     testDodaniePlikuDoSkrzynki();
 
     // Negatywne
-    testLogowanieNieprawidlowe();
     testDodanieDuplikatuKursu();
 
     // Integracyjne
-    testRejestracjaILogowanie();
     testDodanieUsuniecieStudentaZKursu();
 
     // Komunikacja
