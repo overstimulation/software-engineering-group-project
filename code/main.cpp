@@ -1,3 +1,4 @@
+#include <iostream>
 #include <list>
 #include "Uczelnia.h"
 #include "Wydzial.h"
@@ -67,6 +68,8 @@ void printKursy(list<Kurs *> kursy)
     if (kursy.size() == 0)
     {
         cout << "Brak kursow.\n";
+        pressEnterToContinue();
+        cin.ignore();
         return;
     }
     cout << "Lista kursow:\n";
@@ -125,6 +128,10 @@ void zarzadzanieKursem(User *&zalogowany)
     Wykladowca *wykladowca = static_cast<Wykladowca *>(zalogowany);
     list<Kurs *> kursy = wykladowca->getWydzial()->getKursy();
     printKursy(kursy);
+    if (kursy.empty())
+    {
+        return;
+    }
 
     string wyborKursu;
     cout << "Wybierz kurs z powyzszych wpisujac nazwe:\n> ";
@@ -159,7 +166,8 @@ void zarzadzanieKursem(User *&zalogowany)
         cout << "5. Wyswietl uczestnikow\n";
         cout << "6. Wyswietl skrzynki plikow\n";
         cout << "7. Przegladaj pliki w skrzynkach\n";
-        cout << "8. Wyjdz\n> ";
+        cout << "8. Wyswietl studentow i wykladowcow na wydziale\n> ";
+        cout << "9. Wyjdz\n";
         string opcja;
         getline(cin, opcja);
         if (opcja == "1")
@@ -185,7 +193,7 @@ void zarzadzanieKursem(User *&zalogowany)
             {
                 cout << "Nie znaleziono skrzynki o podanym ID.";
             }
-			pressEnterToContinue();
+            pressEnterToContinue();
         }
         else if (opcja == "3")
         {
@@ -211,7 +219,7 @@ void zarzadzanieKursem(User *&zalogowany)
                 if (s)
                 {
                     kurs->dodajStudenta(s);
-					// s->getKursy()->push_back(kurs);
+                    // s->getKursy()->push_back(kurs);
                     cout << "Dodano studenta. ";
                 }
                 else
@@ -237,7 +245,7 @@ void zarzadzanieKursem(User *&zalogowany)
                 if (w)
                 {
                     kurs->dodajWykladowce(w);
-					// w->getKursy()->push_back(kurs);
+                    // w->getKursy()->push_back(kurs);
                     cout << "Dodano wykladowce. ";
                 }
                 else
@@ -314,7 +322,7 @@ void zarzadzanieKursem(User *&zalogowany)
             {
                 cout << "Nie znaleziono skrzynki o podanym ID.\n";
                 pressEnterToContinue();
-				cin.ignore();
+                cin.ignore();
                 continue;
             }
             Plik *plik = wybranaSkrzynka->getPlik();
@@ -323,7 +331,7 @@ void zarzadzanieKursem(User *&zalogowany)
                 cout << "Plik w skrzynce: " << plik->getNazwa() << "\n";
                 cout << "Data dodania: " << plik->getDataDodania() << "\n";
                 cout << "Rozmiar: " << plik->getRozmiar() << " bajtow\n";
-				pressEnterToContinue();
+                pressEnterToContinue();
             }
             else
             {
@@ -331,6 +339,21 @@ void zarzadzanieKursem(User *&zalogowany)
             }
         }
         else if (opcja == "8")
+        {
+            Wydzial *wydzial = kurs->getWykladowcy().front()->getWydzial();
+            cout << "Studenci na wydziale:\n";
+            for (Student *s : wydzial->getStudenci())
+            {
+                cout << "ID: " << s->getId() << ", " << s->getImie() << " " << s->getNazwisko() << ", e-mail: " << s->getEmail() << "\n";
+            }
+            cout << "Wykladowcy na wydziale:\n";
+            for (Wykladowca *w : wydzial->getWykladowcy())
+            {
+                cout << "ID: " << w->getId() << ", " << w->getImie() << " " << w->getNazwisko() << ", e-mail: " << w->getEmail() << "\n";
+            }
+            pressEnterToContinue();
+        }
+        else if (opcja == "9")
         {
             running = false;
         }
@@ -352,7 +375,7 @@ void zarzadzaniePlikami(User *&zalogowany)
     {
         cout << "Brak kursow przypisanych do uzytkownika.\n";
         pressEnterToContinue();
-		cin.ignore();
+        cin.ignore();
         return;
     }
     printKursy(*kursy);
@@ -372,7 +395,7 @@ void zarzadzaniePlikami(User *&zalogowany)
     {
         cout << "Nie znaleziono kursu.\n";
         pressEnterToContinue();
-		cin.ignore();
+        cin.ignore();
         return;
     }
     auto skrzynki = wybranyKurs->getSkrzynki();
@@ -380,7 +403,7 @@ void zarzadzaniePlikami(User *&zalogowany)
     {
         cout << "Brak skrzynek w tym kursie.\n";
         pressEnterToContinue();
-		cin.ignore();
+        cin.ignore();
         return;
     }
     cout << "Dostepne skrzynki:\n";
