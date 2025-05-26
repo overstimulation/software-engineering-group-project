@@ -61,19 +61,18 @@ void printKursy(list<Kurs *> kursy)
     }
 }
 
-// To remove later
 void baseInit(Uczelnia *UMCS, Wydzial *MFII)
 {
     Student *s001 = new Student("Mateusz", "Zawal", MFII, 312428, 2, 1);
-    Student *s002 = new Student("Jakub", "Dobrowolski", MFII, 123456, 2, 1);
-    Student *s003 = new Student("Kacper", "Bednarczuk", MFII, 654321, 2, 1);
+    Student *s002 = new Student("Jakub", "Dobrowolski", MFII, 318759, 2, 1);
+    Student *s003 = new Student("Kacper", "Bednarczuk", MFII, 318685, 2, 1);
 
-    s001->setLogin("1");
-    s001->setHaslo("1");
-    s002->setLogin("2");
-    s002->setHaslo("2");
-    s003->setLogin("3");
-    s003->setHaslo("3");
+    s001->setLogin("Emzeey");
+    s001->setHaslo("123");
+    s002->setLogin("DeKa");
+    s002->setHaslo("123");
+    s003->setLogin("overstimulation");
+    s003->setHaslo("123");
 
     Wykladowca *w001 = new Wykladowca("Andrzej", "Daniluk", MFII, "doktor", "inzynieria oprogramowania");
     w001->setLogin("0");
@@ -91,7 +90,7 @@ void notLoggedPrompt(string *input, User *&zalogowany, Uczelnia *&UMCS)
     if (*input == LOGOWANIE)
     {
         clearConsole();
-        printStudents(UMCS->getStudenci());
+        // printStudents(UMCS->getStudenci());
         zalogowany = User::zaloguj(UMCS);
     }
     else if (*input == REJESTRACJA)
