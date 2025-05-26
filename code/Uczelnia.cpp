@@ -19,6 +19,26 @@ string Uczelnia::getNazwa() {
     return nazwa;
 }
 
+string Uczelnia::getEmailNazwa() {
+    std::string wynik;
+    bool nowyWyraz = true;
+
+    for (char c : this->nazwa) {
+        if (c == ' ') {
+            nowyWyraz = true;
+        } else if (nowyWyraz) {
+            if (c >= 'A' && c <= 'Z') {
+                wynik += c + ('a' - 'A');
+            } else {
+                wynik += c;
+            }
+            nowyWyraz = false;
+        }
+    }
+
+    return wynik;
+}
+
 string Uczelnia::getAdres() {
     return adres;
 }
