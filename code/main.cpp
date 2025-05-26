@@ -126,7 +126,7 @@ void zarzadzanieKursem(User *&zalogowany)
     clearConsole();
     printMenuHeader("Zarzadzanie kursem");
     Wykladowca *wykladowca = static_cast<Wykladowca *>(zalogowany);
-    list<Kurs *> kursy = wykladowca->getWydzial()->getKursy();
+    list<Kurs *> kursy = *wykladowca->getKursy();
     printKursy(kursy);
     if (kursy.empty())
     {
@@ -166,8 +166,9 @@ void zarzadzanieKursem(User *&zalogowany)
         cout << "5. Wyswietl uczestnikow\n";
         cout << "6. Wyswietl skrzynki plikow\n";
         cout << "7. Przegladaj pliki w skrzynkach\n";
-        cout << "8. Wyswietl studentow i wykladowcow na wydziale\n> ";
+        cout << "8. Wyswietl studentow i wykladowcow na wydziale\n";
         cout << "9. Wyjdz\n";
+		cout << "> ";	// Znak zachety
         string opcja;
         getline(cin, opcja);
         if (opcja == "1")
@@ -284,6 +285,9 @@ void zarzadzanieKursem(User *&zalogowany)
         else if (opcja == "6")
         {
             cout << "Skrzynki plikow:\n";
+			if(kurs->getSkrzynki().size() == 0) {
+				cout << "Brak skrzynek w tym kursie.\n";
+			}
             for (Skrzynka *s : kurs->getSkrzynki())
             {
                 cout << "ID: " << s->getId() << ", " << s->getNazwa() << "\n";
@@ -322,7 +326,6 @@ void zarzadzanieKursem(User *&zalogowany)
             {
                 cout << "Nie znaleziono skrzynki o podanym ID.\n";
                 pressEnterToContinue();
-                cin.ignore();
                 continue;
             }
             Plik *plik = wybranaSkrzynka->getPlik();
@@ -336,6 +339,7 @@ void zarzadzanieKursem(User *&zalogowany)
             else
             {
                 cout << "Brak pliku w tej skrzynce.\n";
+				pressEnterToContinue();
             }
         }
         else if (opcja == "8")
@@ -442,6 +446,7 @@ void zarzadzaniePlikami(User *&zalogowany)
     Plik *nowyPlik = new Plik(sciezka, 0, ""); // rozmiar i tresc ignorowane
     wybranaSkrzynka->setPlik(nowyPlik);        // zawsze zastepuje
     cout << "Plik zostal dodany do skrzynki (sciezka symboliczna).\n";
+	pressEnterToContinue();
 }
 
 void poczta(User *&zalogowany)
@@ -461,6 +466,7 @@ void poczta(User *&zalogowany)
         {
             cout << "Brak wiadomosci.\n";
             pressEnterToContinue();
+			cin.ignore();
             return;
         }
         cout << "Twoje wiadomosci:\n";
@@ -482,6 +488,7 @@ void poczta(User *&zalogowany)
             Wiadomosc *wybrana = *it;
             cout << "Temat: " << wybrana->getTemat() << "\nTresc: " << wybrana->getTresc() << "\nData: " << wybrana->getData() << "\n";
             pressEnterToContinue();
+			cin.ignore();
         }
     }
     else if (wybor == "2")
@@ -504,6 +511,7 @@ void poczta(User *&zalogowany)
         {
             cout << "Nie znaleziono odbiorcy o podanym e-mailu.\n";
             pressEnterToContinue();
+			cin.ignore();
             return;
         }
         cout << "Temat: ";
@@ -516,6 +524,7 @@ void poczta(User *&zalogowany)
         Wiadomosc *nowa = new Wiadomosc(temat, tresc, string(dt), odbiorca, zalogowany);
         zalogowany->wyslijWiadomosc(&pocztaInst, nowa);
         cout << "Wiadomosc zostala wyslana.\n";
+		pressEnterToContinue();
     }
     else
     {
