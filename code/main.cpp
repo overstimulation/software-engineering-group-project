@@ -7,6 +7,8 @@
 #include "Kurs.h"
 #include "Poczta.h"
 #include "Wiadomosc.h"
+#include "Skrzynka.h"
+#include "Plik.h"
 
 // Do logowania
 const string LOGOWANIE = "1";
@@ -169,7 +171,77 @@ void zarzadzanieKursem(User *&zalogowany)
 void zarzadzaniePlikami(User *&zalogowany)
 {
     clearConsole();
-    // TODO
+    cout << "Zarzadzanie plikami w skrzynce:\n";
+    if (zalogowany->getRola() != "student" && zalogowany->getRola() != "wykladowca")
+    {
+        cout << "Brak uprawnien do zarzadzania plikami.\n";
+        return;
+    }
+    list<Kurs *> *kursy = zalogowany->getKursy();
+    if (!kursy || kursy->empty())
+    {
+        cout << "Brak kursow przypisanych do uzytkownika.\n";
+        return;
+    }
+    printKursy(*kursy);
+    cout << "Podaj nazwe kursu: ";
+    string nazwaKursu;
+    cin >> nazwaKursu;
+    Kurs *wybranyKurs = nullptr;
+    for (Kurs *k : *kursy)
+    {
+        if (k->getNazwa() == nazwaKursu)
+        {
+            wybranyKurs = k;
+            break;
+        }
+    }
+    if (!wybranyKurs)
+    {
+        cout << "Nie znaleziono kursu.\n";
+        return;
+    }
+    auto skrzynki = wybranyKurs->getSkrzynki();
+    if (skrzynki.empty())
+    {
+        cout << "Brak skrzynek w tym kursie.\n";
+        return;
+    }
+    cout << "Dostepne skrzynki:\n";
+    for (Skrzynka *s : skrzynki)
+    {
+        cout << s->getId() << ": " << s->getNazwa() << "\n";
+    }
+    cout << "Podaj ID skrzynki: ";
+    int idSkrzynki;
+    cin >> idSkrzynki;
+    Skrzynka *wybranaSkrzynka = nullptr;
+    for (Skrzynka *s : skrzynki)
+    {
+        if (s->getId() == idSkrzynki)
+        {
+            wybranaSkrzynka = s;
+            break;
+        }
+    }
+    if (!wybranaSkrzynka)
+    {
+        cout << "Nie znaleziono skrzynki.\n";
+        return;
+    }
+    // Dodawanie pliku - symbolicznie: tylko sciezka
+    cout << "Podaj sciezke do istniejacego pliku (symbolicznie): ";
+    string sciezka;
+    cin.ignore();
+    getline(cin, sciezka);
+    if (sciezka.empty())
+    {
+        cout << "Sciezka nie moze byc pusta!\n";
+        return;
+    }
+    Plik *nowyPlik = new Plik(sciezka, 0, ""); // rozmiar i tresc ignorowane
+    wybranaSkrzynka->setPlik(nowyPlik);        // zawsze zastepuje
+    cout << "Plik zostal dodany do skrzynki (sciezka symboliczna).\n";
 }
 
 void poczta(User *&zalogowany)
@@ -253,6 +325,8 @@ void loggedPrompt(string *input, User *&zalogowany)
 {
     string rola = zalogowany->getRola();
 
+    cout << POCZTA << ". Poczta\n";
+
     if (rola == "wykladowca")
     {
         cout << STWORZ_KURS << ". Stworz kurs\n";
@@ -263,7 +337,6 @@ void loggedPrompt(string *input, User *&zalogowany)
         cout << ZARZADZANIE_PLIKAMI << ". Zarzadzanie plikami skrzynki w kursie\n";
     }
 
-    cout << POCZTA << ". Poczta\n";
     cout << WYLOGUJ << ". Wyloguj\n";
     cout << OUT << ". Koniec\n";
     cout << "> ";
