@@ -12,6 +12,8 @@
 #include "Skrzynka.h"
 #include "Plik.h"
 
+int Skrzynka::nextId = 1;
+
 int Skrzynka::getId()
 {
     return id;
@@ -32,4 +34,8 @@ void Skrzynka::setPlik(Plik *plik)
     this->plik = plik;
 }
 
-Skrzynka::Skrzynka(string nazwa) : nazwa(nazwa) {}
+Skrzynka::Skrzynka(string nazwa) : nazwa(nazwa)
+{
+    id = nextId++;
+    plik = nullptr;
+}

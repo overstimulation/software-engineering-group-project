@@ -28,6 +28,8 @@ public:
 	Plik *getPlik();
 	void setPlik(Plik *plik);
 	Skrzynka(string nazwa);
+	// automatyczne ID
+	static int nextId;
 
 private:
 	int id;

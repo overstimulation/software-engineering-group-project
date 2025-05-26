@@ -120,28 +120,167 @@ void zarzadzanieKursem(User *&zalogowany)
     list<Kurs *> kursy = wykladowca->getWydzial()->getKursy();
     printKursy(kursy);
 
-    string wybor;
-    cout << "Wybierz kurs z powyzszych wpisujac nazwe:\n";
-    cout << "> ";
-    cin >> wybor;
+    string wyborKursu;
+    cout << "Wybierz kurs z powyzszych wpisujac nazwe:\n> ";
+    cin.ignore();
+    getline(cin, wyborKursu);
 
     Kurs *kurs = nullptr;
     for (Kurs *k : kursy)
     {
-        if (k->getNazwa() == wybor)
+        if (k->getNazwa() == wyborKursu)
         {
             kurs = k;
             break;
         }
     }
 
-    if (kurs != nullptr)
-    {
-        cout << "Zarzadzanie kursem:\n";
-    }
-    else
+    if (!kurs)
     {
         cout << "Nie ma takiego kursu.\n";
+        cout << "Nacisnij Enter, aby wrocic do menu...";
+        cin.get();
+        return;
+    }
+
+    bool running = true;
+    while (running)
+    {
+        clearConsole();
+        printMenuHeader("Panel zarzadzania kursem: " + kurs->getNazwa());
+        cout << "1. Dodaj skrzynke plikow\n";
+        cout << "2. Usun skrzynke plikow\n";
+        cout << "3. Dodaj uczestnika (student/wykladowca)\n";
+        cout << "4. Usun uczestnika\n";
+        cout << "5. Wyswietl uczestnikow\n";
+        cout << "6. Wyswietl skrzynki plikow\n";
+        cout << "7. Wyjdz\n> ";
+        string opcja;
+        getline(cin, opcja);
+        if (opcja == "1")
+        {
+            cout << "Podaj nazwe nowej skrzynki: ";
+            string nazwa;
+            getline(cin, nazwa);
+            static int nextId = 1;
+            Skrzynka *nowa = new Skrzynka(nazwa);
+            kurs->dodajSkrzynke(nowa);
+            cout << "Dodano skrzynke. Nacisnij Enter...";
+            cin.get();
+        }
+        else if (opcja == "2")
+        {
+            cout << "Podaj ID skrzynki do usuniecia: ";
+            int id;
+            cin >> id;
+            cin.ignore();
+            if (kurs->usunSkrzynke(id))
+                cout << "Usunieto skrzynke.";
+            else
+                cout << "Nie znaleziono skrzynki o podanym ID.";
+            cout << "Nacisnij Enter...";
+            cin.get();
+        }
+        else if (opcja == "3")
+        {
+            cout << "Dodaj uczestnika (student/wykladowca):\n1. Student\n2. Wykladowca\n> ";
+            string typ;
+            getline(cin, typ);
+            if (typ == "1")
+            {
+                cout << "Podaj ID studenta: ";
+                int id;
+                cin >> id;
+                cin.ignore();
+                // Szukaj studenta po ID na wydziale
+                Student *s = nullptr;
+                for (Student *st : kurs->getWykladowcy().front()->getWydzial()->getUczelnia()->getStudenci())
+                {
+                    if (st->getId() == id)
+                    {
+                        s = st;
+                        break;
+                    }
+                }
+                if (s)
+                {
+                    kurs->dodajStudenta(s);
+                    cout << "Dodano studenta.";
+                }
+                else
+                {
+                    cout << "Nie znaleziono studenta o podanym ID.";
+                }
+            }
+            else if (typ == "2")
+            {
+                cout << "Podaj ID wykladowcy: ";
+                int id;
+                cin >> id;
+                cin.ignore();
+                Wykladowca *w = nullptr;
+                for (Wykladowca *wyk : kurs->getWykladowcy().front()->getWydzial()->getUczelnia()->getWykladowcy())
+                {
+                    if (wyk->getId() == id)
+                    {
+                        w = wyk;
+                        break;
+                    }
+                }
+                if (w)
+                {
+                    kurs->dodajWykladowce(w);
+                    cout << "Dodano wykladowce.";
+                }
+                else
+                {
+                    cout << "Nie znaleziono wykladowcy o podanym ID.";
+                }
+            }
+            cout << "Nacisnij Enter...";
+            cin.get();
+        }
+        else if (opcja == "4")
+        {
+            cout << "Podaj ID uczestnika do usuniecia: ";
+            int id;
+            cin >> id;
+            cin.ignore();
+            if (kurs->usunUczestnika(id))
+                cout << "Usunieto uczestnika.";
+            else
+                cout << "Nie znaleziono uczestnika o podanym ID.";
+            cout << "Nacisnij Enter...";
+            cin.get();
+        }
+        else if (opcja == "5")
+        {
+            cout << "Studenci:\n";
+            for (Student *s : kurs->getStudenci())
+                cout << "ID: " << s->getId() << ", " << s->getImie() << " " << s->getNazwisko() << "\n";
+            cout << "Wykladowcy:\n";
+            for (Wykladowca *w : kurs->getWykladowcy())
+                cout << "ID: " << w->getId() << ", " << w->getImie() << " " << w->getNazwisko() << "\n";
+            cout << "Nacisnij Enter...";
+            cin.get();
+        }
+        else if (opcja == "6")
+        {
+            cout << "Skrzynki plikow:\n";
+            for (Skrzynka *s : kurs->getSkrzynki())
+                cout << "ID: " << s->getId() << ", " << s->getNazwa() << "\n";
+            cout << "Nacisnij Enter...";
+            cin.get();
+        }
+        else if (opcja == "7")
+        {
+            running = false;
+        }
+        else
+        {
+            cout << "Nieznana opcja. Nacisnij Enter...";
+            cin.get();
+        }
     }
 }
 
