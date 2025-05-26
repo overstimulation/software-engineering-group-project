@@ -99,25 +99,6 @@ void baseInit(Uczelnia *UMCS, Wydzial *MFII)
     s003->setHaslo("123");
 
     Wykladowca *w001 = new Wykladowca("Andrzej", "Daniluk", MFII, "doktor", "inzynieria oprogramowania");
-    w001->setLogin("0");
-    w001->setHaslo("0");
-}
-
-
-void prezentacjaInit(Uczelnia *UMCS, Wydzial *MFII)
-{
-    Student *s001 = new Student("Mateusz", "Zawal", MFII, 312428, 2, 1);
-    Student *s002 = new Student("Jakub", "Dobrowolski", MFII, 318759, 2, 1);
-    Student *s003 = new Student("Kacper", "Bednarczuk", MFII, 318685, 2, 1);
-
-    s001->setLogin("Emzeey");
-    s001->setHaslo("123");
-    s002->setLogin("DeKa");
-    s002->setHaslo("123");
-    s003->setLogin("overstimulation");
-    s003->setHaslo("123");
-
-    Wykladowca *w001 = new Wykladowca("Andrzej", "Daniluk", MFII, "doktor", "inzynieria oprogramowania");
     w001->setLogin("daniluk");
     w001->setHaslo("tron");
 
@@ -128,26 +109,23 @@ void prezentacjaInit(Uczelnia *UMCS, Wydzial *MFII)
     MFII->dodajKurs(k2);
     k2->dodajStudenta(s001);
     k2->dodajStudenta(s003);
-    Ocena* o1 = new Ocena(5,s001);
-    Ocena* o2 = new Ocena(4,s003);
+    Ocena *o1 = new Ocena(5, s001);
+    Ocena *o2 = new Ocena(4, s003);
 
     k2->dodajOcene(o1);
     k2->dodajOcene(o2);
 
-    Skrzynka* nowa= new Skrzynka("kolos");
+    Skrzynka *nowa = new Skrzynka("kolos");
     k2->dodajSkrzynke(nowa);
-    Plik* nowyPlik=new Plik("zadanie1",0,"");
+    Plik *nowyPlik = new Plik("zadanie1", 0, "");
     nowa->setPlik(nowyPlik);
 
-    Wiadomosc* tron=new Wiadomosc("egzamin","https://www.cda.pl/video/1190300338","27-05-2025",w001,s001);
-    Wiadomosc* tron2=new Wiadomosc("egzamin","https://www.cda.pl/video/1190300338","27-05-2025",s001,w001);
+    Wiadomosc *tron = new Wiadomosc("egzamin", "https://www.cda.pl/video/1190300338", "27-05-2025", w001, s001);
+    Wiadomosc *tron2 = new Wiadomosc("egzamin", "https://www.cda.pl/video/1190300338", "27-05-2025", s001, w001);
 
-    s001->wyslijWiadomosc(&pocztaInst,tron);
-    w001->wyslijWiadomosc(&pocztaInst,tron2);
+    s001->wyslijWiadomosc(&pocztaInst, tron);
+    w001->wyslijWiadomosc(&pocztaInst, tron2);
 }
-
-
-
 
 void notLoggedPrompt(string *input, User *&zalogowany, Uczelnia *&UMCS)
 {
@@ -752,29 +730,19 @@ void loggedPrompt(string *input, User *&zalogowany)
 
 int main()
 {
-    bool testy=false;
-    bool prezentacja=true;
-    if(testy)
+    bool testy = false;
+    if (testy)
     {
-    runAllTests();
-    cout << "Wszystkie testy zakonczone sukcesem." << endl;
-    cout << "Nacisnij Enter, aby kontynuowac...";
-    cin.get();
-    cin.ignore();
+        runAllTests();
+        cout << "Wszystkie testy zakonczone sukcesem." << endl;
+        cout << "Nacisnij Enter, aby kontynuowac...";
+        cin.get();
+        cin.ignore();
     }
     Uczelnia *UMCS = new Uczelnia("Uniwersytet Marii Curie Sklodowskiej", "Pl. M. Curie-Sklodowskiej 5 20-031 Lublin");
     Wydzial *MFII = new Wydzial("mfii", UMCS);
 
-
-
-    if(prezentacja)
-    {
-    prezentacjaInit(UMCS, MFII);
-    }
-    else
-    {
-        baseInit(UMCS, MFII);
-    }
+    baseInit(UMCS, MFII);
 
     // Interface
     User *zalogowany = nullptr;
