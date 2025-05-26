@@ -17,41 +17,66 @@
 #include "Ocena.h"
 #include "Plik.h"
 
-string Kurs::getNazwa() {
-    return nazwa;
+string Kurs::getNazwa()
+{
+	return nazwa;
 }
 
-list<Student *> Kurs::getStudenci() {
+list<Student *> Kurs::getStudenci()
+{
 	return studenci;
 }
 
-list<Wykladowca *> Kurs::getWykladowcy() {
+list<Wykladowca *> Kurs::getWykladowcy()
+{
 	return wykladowcy;
 }
 
-list<Skrzynka *> Kurs::getSkrzynki() {
+list<Skrzynka *> Kurs::getSkrzynki()
+{
 	return skrzynkiPlikow;
 }
 
-void Kurs::dodajSkrzynke(Skrzynka *skrzynka) {
+void Kurs::dodajSkrzynke(Skrzynka *skrzynka)
+{
 	skrzynkiPlikow.push_back(skrzynka);
 }
 
-void Kurs::dodajOcene(Ocena *ocena) {
+void Kurs::dodajOcene(Ocena *ocena)
+{
 	oceny.push_back(ocena);
 }
 
-void Kurs::dodajStudenta(Student *student) {
+void Kurs::dodajStudenta(Student *student)
+{
+	for (Student *s : studenci)
+	{
+		if (s->getId() == student->getId())
+		{
+			return; // już jest na liście
+		}
+	}
 	studenci.push_back(student);
 }
 
-void Kurs::dodajWykladowce(Wykladowca *wykladowca) {
+void Kurs::dodajWykladowce(Wykladowca *wykladowca)
+{
+	for (Wykladowca *w : wykladowcy)
+	{
+		if (w->getId() == wykladowca->getId())
+		{
+			return; // już jest na liście
+		}
+	}
 	wykladowcy.push_back(wykladowca);
 }
 
-bool Kurs::usunSkrzynke(int id) {
-	for(Skrzynka *skrzynka : skrzynkiPlikow) {
-		if(skrzynka->getId() == id) {
+bool Kurs::usunSkrzynke(int id)
+{
+	for (Skrzynka *skrzynka : skrzynkiPlikow)
+	{
+		if (skrzynka->getId() == id)
+		{
 			skrzynkiPlikow.remove(skrzynka);
 			return true;
 		}
@@ -59,9 +84,12 @@ bool Kurs::usunSkrzynke(int id) {
 	return false;
 }
 
-bool Kurs::usunOcene(Ocena *ocena) {
-	for(Ocena *o : oceny) {
-		if(o->getWartosc() == ocena->getWartosc() && o->getAdresat() == ocena->getAdresat()) {
+bool Kurs::usunOcene(Ocena *ocena)
+{
+	for (Ocena *o : oceny)
+	{
+		if (o->getWartosc() == ocena->getWartosc() && o->getAdresat() == ocena->getAdresat())
+		{
 			oceny.remove(ocena);
 			return true;
 		}
@@ -69,15 +97,20 @@ bool Kurs::usunOcene(Ocena *ocena) {
 	return false;
 }
 
-bool Kurs::usunUczestnika(int id) {
-	for(Student *s : studenci) {
-		if(s->getId() == id) {
+bool Kurs::usunUczestnika(int id)
+{
+	for (Student *s : studenci)
+	{
+		if (s->getId() == id)
+		{
 			studenci.remove(s);
 			return true;
 		}
 	}
-	for(Wykladowca *w : wykladowcy) {
-		if(w->getId() == id) {
+	for (Wykladowca *w : wykladowcy)
+	{
+		if (w->getId() == id)
+		{
 			wykladowcy.remove(w);
 			return true;
 		}
@@ -85,14 +118,18 @@ bool Kurs::usunUczestnika(int id) {
 	return false;
 }
 
-void Kurs::dodajPlikDoSkrzynki(int idSkrzynki, Plik *plik) {
-	for(Skrzynka *skrzynka : skrzynkiPlikow) {
-		if(skrzynka->getId() == idSkrzynki) {
+void Kurs::dodajPlikDoSkrzynki(int idSkrzynki, Plik *plik)
+{
+	for (Skrzynka *skrzynka : skrzynkiPlikow)
+	{
+		if (skrzynka->getId() == idSkrzynki)
+		{
 			skrzynka->setPlik(plik);
 		}
 	}
 }
 
-Kurs::Kurs(string nazwa, Wykladowca *prowadzacy) : nazwa(nazwa) {
-    wykladowcy.push_back(prowadzacy);
+Kurs::Kurs(string nazwa, Wykladowca *prowadzacy) : nazwa(nazwa)
+{
+	wykladowcy.push_back(prowadzacy);
 }

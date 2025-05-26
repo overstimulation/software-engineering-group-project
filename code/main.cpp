@@ -326,7 +326,6 @@ void zarzadzanieKursem(User *&zalogowany)
             {
                 cout << "Brak pliku w tej skrzynce.\n";
             }
-            pressEnterToContinue();
         }
         else if (opcja == "8")
         {
