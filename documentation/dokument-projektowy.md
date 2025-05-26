@@ -130,6 +130,21 @@ Celem projektu jest stworzenie systemu, który ułatwi komunikację pomiędzy wy
 ### Diagramy sekwencji
 
 <div style="page-break-inside: avoid; break-inside: avoid;">
+	<p>Kurs, cz. 1</p>
+    <img src="assets/sequence-diagrams/sequence-diagram-kurs-cz1.png">
+</div>
+
+<div style="page-break-inside: avoid; break-inside: avoid;">
+	<p>Kurs, cz. 2</p>
+    <img src="assets/sequence-diagrams/sequence-diagram-kurs-cz2.png">
+</div>
+
+<div style="page-break-inside: avoid; break-inside: avoid;">
+	<p>User</p>
+    <img src="assets/sequence-diagrams/sequence-diagram-user.png">
+</div>
+
+<div style="page-break-inside: avoid; break-inside: avoid;">
 	<p>Dodanie pliku do skrzynki</p>
     <img src="assets/sequence-diagrams/sequence-diagram-kurs-dodanie-pliku-do-skrzynki.png">
 </div>
