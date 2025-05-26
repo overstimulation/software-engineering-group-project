@@ -37,6 +37,14 @@ void clearConsole()
 #endif
 }
 
+void printMenuHeader(const string &menuName)
+{
+    string line(menuName.length() + 2, '=');
+    cout << line << "\n"
+         << menuName << "\n"
+         << line << "\n";
+}
+
 void printStudents(list<Student *> studenci)
 {
     cout << "DEBUG studenci\n";
@@ -81,6 +89,7 @@ void baseInit(Uczelnia *UMCS, Wydzial *MFII)
 
 void notLoggedPrompt(string *input, User *&zalogowany, Uczelnia *&UMCS)
 {
+    printMenuHeader("Menu Glowne");
     cout << LOGOWANIE << ". Logowanie\n";
     cout << REJESTRACJA << ". Rejestracja\n";
     cout << OUT << ". Koniec\n";
@@ -90,12 +99,14 @@ void notLoggedPrompt(string *input, User *&zalogowany, Uczelnia *&UMCS)
     if (*input == LOGOWANIE)
     {
         clearConsole();
+        printMenuHeader("Logowanie");
         // printStudents(UMCS->getStudenci());
         zalogowany = User::zaloguj(UMCS);
     }
     else if (*input == REJESTRACJA)
     {
         clearConsole();
+        printMenuHeader("Rejestracja");
         zalogowany = User::zarejestruj(UMCS);
     }
 }
@@ -103,6 +114,7 @@ void notLoggedPrompt(string *input, User *&zalogowany, Uczelnia *&UMCS)
 void stworzKurs(User *&zalogowany)
 {
     clearConsole();
+    printMenuHeader("Tworzenie kursu");
 
     bool istnieje = false;
     string nazwaKursu;
@@ -138,6 +150,7 @@ void stworzKurs(User *&zalogowany)
 void zarzadzanieKursem(User *&zalogowany)
 {
     clearConsole();
+    printMenuHeader("Zarządzanie kursem");
     Wykladowca *wykladowca = static_cast<Wykladowca *>(zalogowany);
     list<Kurs *> kursy = wykladowca->getWydzial()->getKursy();
     printKursy(kursy);
@@ -170,6 +183,7 @@ void zarzadzanieKursem(User *&zalogowany)
 void zarzadzaniePlikami(User *&zalogowany)
 {
     clearConsole();
+    printMenuHeader("Zarządzanie plikami");
     cout << "Zarzadzanie plikami w skrzynce:\n";
     if (zalogowany->getRola() != "student" && zalogowany->getRola() != "wykladowca")
     {
@@ -246,13 +260,15 @@ void zarzadzaniePlikami(User *&zalogowany)
 void poczta(User *&zalogowany)
 {
     clearConsole();
+    printMenuHeader("Panel poczty");
     static Poczta pocztaInst;
-    cout << "Panel poczty:\n1. Sprawdz wiadomosci\n2. Wyslij wiadomosc\n0. Wyjdz\n> ";
+    cout << "1. Sprawdz wiadomosci\n2. Wyslij wiadomosc\n0. Wyjdz\n> ";
     string wybor;
     cin >> wybor;
     if (wybor == "1")
     {
         // Sprawdz wiadomosci
+        printMenuHeader("Sprawdzanie wiadomosci");
         auto wiadomosci = zalogowany->sprawdzWiadomosci(&pocztaInst);
         if (wiadomosci.empty())
         {
@@ -286,6 +302,7 @@ void poczta(User *&zalogowany)
     else if (wybor == "2")
     {
         // Wyslij wiadomosc
+        printMenuHeader("Wysylanie wiadomosci");
         string emailOdbiorcy, temat, tresc;
         cout << "Podaj e-mail odbiorcy: ";
         cin >> emailOdbiorcy;
@@ -323,6 +340,7 @@ void poczta(User *&zalogowany)
 void loggedPrompt(string *input, User *&zalogowany)
 {
     string rola = zalogowany->getRola();
+    printMenuHeader("Menu uzytkownika");
 
     cout << POCZTA << ". Poczta\n";
 
